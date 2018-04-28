@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Gestor.Models.Pcp>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Pcp> pcps = ViewBag.OnePageHistory;
+}
+<h2>Índice</h2>
+<p>
+    @Html.ActionLink("Criar nova entrada para PCP", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Pcps", FormMethod.Post))
+{
+    <p>
+        PCP: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in pcps)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.PcpId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.PcpId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.PcpId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.PcpId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.PcpId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.PcpId })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

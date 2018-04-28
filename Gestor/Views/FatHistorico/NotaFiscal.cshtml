@@ -1,0 +1,353 @@
+﻿@* FatHistorico\NotaFiscal.cshtml *@
+
+@model IEnumerable<Gestor.Models.CuboTrabalhado>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "NotaFiscal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.CuboTrabalhado> cubo = ViewBag.OnePageHistory;
+}
+
+<h2>Nota Fiscal</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("Pedido", "FatHistorico", FormMethod.Post))
+        {
+            <p>
+                Pedido: @Html.TextBox("pedido")
+                <input type="submit" value="Procurar" />
+            </p>
+        }
+    </div>
+    <div class="col-md-4">
+        @using (Html.BeginForm("NotaFiscal", "FatHistorico", FormMethod.Post))
+        {
+            <p>
+                Nota Fiscal: @Html.TextBox("notafiscal")
+                <input type="submit" value="Procurar" />
+            </p>
+        }
+    </div>
+</div>
+
+@using (var db = new Gestor.Models.ApplicationDbContext())
+{
+
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Familia.Apelido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Regiao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Familia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormaPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataValidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFaturamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaFiscal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceitaBruta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorIpi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrazoPagMedio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatuBruto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faturado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesFatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faturado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesEntregue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteNfDataFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoAjustado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodNomeProdutoUnidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantAjustada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PesoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Juridico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegmentoCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grupo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrazoEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxaDolar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatBrutoUsd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoIndividual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceitaLiquida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Frete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustoFinancCobranca)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in cubo)
+        {
+            <tr>
+                <td>
+                    @*@Html.ActionLink("Alterar", "Edit", new { id = item.Id })*@
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pedido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataPedido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Familia.Apelido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Regiao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto)
+                </td>
+                <td>
+                    @db.Categorias.Single(c => c.CategoriaId == item.CategoriaId).Descricao
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Familia.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormaPagamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataValidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoVenda.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFaturamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotaFiscal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorUnitario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceitaBruta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorIpi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorST)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrazoPagMedio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatuBruto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Faturado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesCadastro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesFatura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Faturado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesEntregue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClienteNfDataFat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoAjustado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodNomeProdutoUnidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantAjustada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PesoProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Juridico)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoCliente.Descricao)
+                </td>
+                <td>
+                    @db.CategoriasCliente.Single(c => c.Id == item.CategoriaClienteId).Descricao
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SegmentoCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrazoEntrega)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaxaDolar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatBrutoUsd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecoIndividual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceitaLiquida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comissao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Frete)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustoFinancCobranca)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Alterar", "Edit", new { id = item.Id })*@
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("NotaFiscal", new { page }))

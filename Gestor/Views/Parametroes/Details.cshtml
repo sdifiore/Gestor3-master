@@ -1,0 +1,157 @@
+﻿@model Gestor.Models.Parametro
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Parâmetro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dolar)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dolar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropFitasFioGaxeta)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropFitasFioGaxeta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropSucatas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropSucatas)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropGrafitado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropGrafitado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HMod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HMod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoIndustrialAno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoIndustrialAno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoComercialAno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoComercialAno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoComtexAno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoComtexAno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminAno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoAdminAno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFolhaModAno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFolhaModAno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SemanasReposicao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SemanasReposicao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ComissaoGcComacs)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ComissaoGcComacs)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Icms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Icms)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ipi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ipi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inss)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inss)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comissão)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comissão)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Frete)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Frete)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MargemLiquida)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MargemLiquida)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ComissGestVenda)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ComissGestVenda)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CondicaoPgtoStd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CondicaoPgtoStd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TxJuroStd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TxJuroStd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoCobranca)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoCobranca)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(" Retornar a lista", "Index")
+</p>

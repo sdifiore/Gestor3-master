@@ -1,0 +1,43 @@
+﻿@model Gestor.Models.IcmsFrete
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Icms Frete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rotulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rotulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frete)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retornar a lista", "Index")
+</p>

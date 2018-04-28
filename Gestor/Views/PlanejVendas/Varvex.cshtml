@@ -1,0 +1,186 @@
+﻿@model List<Gestor.Models.VarVex>
+@{
+    ViewBag.Title = "Variação de PV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Premissas de variação de preço do PV adotado</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken();
+
+    <table class="table table-hover">
+        <tr>
+            <th>Item</th>
+            <th>Descrição</th>
+            <th style="min-width: 150px; text-align: center">vPVex-11</th>
+            <th style="min-width: 150px; text-align: center">vPVex-10</th>
+            <th style="min-width: 150px; text-align: center">vPVex-9</th>
+            <th style="min-width: 150px; text-align: center">vPVex-8</th>
+            <th style="min-width: 150px; text-align: center">vPVex-7</th>
+            <th style="min-width: 150px; text-align: center">vPVex-6</th>
+            <th style="min-width: 150px; text-align: center">vPVex-5</th>
+            <th style="min-width: 150px; text-align: center">vPVex-4</th>
+            <th style="min-width: 150px; text-align: center">vPVex-3</th>
+            <th style="min-width: 150px; text-align: center">vPVex-2</th>
+            <th style="min-width: 150px; text-align: center">vPVex-1</th>
+            <th style="min-width: 150px; text-align: center">vPVex</th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            @Html.HiddenFor(m => Model[i].Id)
+
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => Model[i].Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model[i].Descricao)
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-11:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos12, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos12, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-10:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos11, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos11, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-9:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos10, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos10, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-8:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos09, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos09, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-7:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos08, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos08, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-6:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos07, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos07, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-5:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos06, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos06, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-4:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos05, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos05, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-3:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos04, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos04, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-2:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos03, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos03, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex-1:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos02, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos02, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">vPVex:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VpVexMenos01, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VpVexMenos01, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+        }
+
+    </table>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Gravar e Calcular" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Retornar a lista", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

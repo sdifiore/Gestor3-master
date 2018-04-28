@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Gestor.Models.TipoAlteracao>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.TipoAlteracao> tipos = ViewBag.OnePageHistory;
+}
+<h2>Índice</h2>
+<p>
+    @Html.ActionLink("Criar novo tipo de alteração", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "TipoAlteracaos", FormMethod.Post))
+{
+    <p>
+        Alteração: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in tipos)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.TipoAlteracaoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.TipoAlteracaoId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.TipoAlteracaoId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.TipoAlteracaoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.TipoAlteracaoId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.TipoAlteracaoId })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

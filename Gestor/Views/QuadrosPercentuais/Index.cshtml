@@ -1,0 +1,545 @@
+﻿@model IEnumerable<Gestor.Models.QuadroPercentual>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.QuadroPercentual> quadros = ViewBag.OnePageHistory;
+}
+
+<h2>Índice</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlGlobalRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlPropriaRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RlTerceirosRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlGlobalRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlPropriaRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlTerceirosRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmGlobalRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmPropriaRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HmTerceirosRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipGloballRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipPropriaRevenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosFita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosTubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosFiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosGxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosGxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosGraxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QipTerceirosRevenda)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in quadros)
+    {
+        <tr>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlGlobalRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlPropriaRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RlTerceirosRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlGlobalRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlPropriaRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlTerceirosRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmGlobalRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmPropriaRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HmTerceirosRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipGloballRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipPropriaRevenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosFita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosTubo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosFiotec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosGxpuro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosGxgraf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosGraxa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QipTerceirosRevenda)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

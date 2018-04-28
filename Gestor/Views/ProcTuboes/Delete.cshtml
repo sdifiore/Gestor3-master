@@ -1,0 +1,506 @@
+﻿@model Gestor.Models.ProcTubo
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>ProcTubo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Descricao)
+        </dd>
+
+        <dt>
+            Resina Base
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResinaBase.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiamExterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiamExterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiamInterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiamInterno)
+        </dd>
+
+        <dt>
+            Série
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serie.Apelido)
+        </dd>
+
+        <dt>
+           Carga 1
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carga1.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctCarga1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctCarga1)
+        </dd>
+
+        <dt>
+            Carga 2
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carga2.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctCarga2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctCarga2)
+        </dd>
+
+        <dt>
+            Embalagem
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Embalagem.Sigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sinterizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sinterizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodResinaAdotada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodResinaAdotada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RrMaxResina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RrMaxResina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BicoIdeal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BicoIdeal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MandrilIdeal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MandrilIdeal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecaoExtrudado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecaoExtrudado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerimSecaoExtrud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerimSecaoExtrud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiamExtFinalTubo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiamExtFinalTubo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiamIntFinalTubo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiamIntFinalTubo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoUnKgMLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoUnKgMLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PtfeKgM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PtfeKgM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LubrKgM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LubrKgM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodPreformaIdeal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodPreformaIdeal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LanceSinterizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanceSinterizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatorMultiplQtde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatorMultiplQtde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtPf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtPf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantEmbalagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantEmbalagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessoContinuo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessoContinuo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VextrUmidoMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VextrUmidoMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatorMultiplVExter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatorMultiplVExter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VsintMMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VsintMMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatorMultiplVelSint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatorMultiplVelSint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VSintResultante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VSintResultante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TesteEstqEsto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TesteEstqEsto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfAdtDosLub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfAdtDosLub)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peneiramento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peneiramento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MisturaMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MisturaMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreparoExtrusMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreparoExtrusMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VelEfetExtrusaoMMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VelEfetExtrusaoMMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuSinterizadoMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuSinterizadoMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuProducaoMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuProducaoMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuInspUdc3MinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuInspUdc3MinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuTesteEstanqMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuTesteEstanqMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuTesteEstouroMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuTesteEstouroMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuEmbalMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuEmbalMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuTotalMinM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuTotalMinM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoPtfeRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoPtfeRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoAditivosRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoAditivosRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoLubrifRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoLubrifRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoEmbalRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoEmbalRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoModRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoModRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoDiretoTotalRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoDiretoTotalRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoIndiretoRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoIndiretoRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoTotalRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoTotalRsM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PvRsKg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PvRsKg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CapProducaoMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapProducaoMH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtPCusto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtPCusto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PvCalculadoRsM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PvCalculadoRsM)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

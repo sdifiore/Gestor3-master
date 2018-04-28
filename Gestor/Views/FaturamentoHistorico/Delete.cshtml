@@ -1,0 +1,409 @@
+﻿@model Gestor.Models.FatHistorico
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Faturamento Histórico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Apelido)
+        </dd>
+
+        <dt>
+            Produto Ajustado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutoAjustado.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regiao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regiao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataValidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataValidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoVenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFaturamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFaturamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaFiscal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaFiscal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorMercadoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorMercadoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorIpi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorIpi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorSubstTributaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorSubstTributaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrazoMedioRecebimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrazoMedioRecebimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecBruta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecBruta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FaturBruto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaturBruto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnoMesFatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnoMesFatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientePedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientePedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaturCli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaturCli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriaCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoriaCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SegmentoCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SegmentoCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrazoEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrazoEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TxDolar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TxDolar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatBrutoUsd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatBrutoUsd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecoIndividual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecoIndividual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceitaLiquida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceitaLiquida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comissao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comissao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CstFinBobranca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CstFinBobranca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantAjustada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantAjustada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrazoFatur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrazoFatur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorasMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorasMod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComGvComacs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComGvComacs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescrProdAjustado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescrProdAjustado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdCategoriaAjustado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdCategoriaAjustado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

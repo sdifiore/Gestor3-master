@@ -1,0 +1,91 @@
+﻿@model Gestor.Models.IndiceRateioLucratividade
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var grupo = new string[12];
+
+    using (var db = new Gestor.Models.ApplicationDbContext())
+    {
+        for (int i = 1; i < 12; i++)
+        {
+            grupo[i] = db.Rateios.Single(r => r.RateioId == i).Grupo;
+        }
+    }
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Índice Rateio Lucratividade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GrupoRateio.Grupo)
+        </dt>
+
+        <dd>
+            @grupo[Model.GrupoRateioId]
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCustoFixo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCustoFixo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoiFabricacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoiFabricacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutroCustoFixoFabricacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutroCustoFixoFabricacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoComacs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoComacs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoComtex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoComtex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminLog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoAdminLog)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

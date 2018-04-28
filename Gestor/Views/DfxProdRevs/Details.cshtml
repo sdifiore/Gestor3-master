@@ -1,0 +1,155 @@
+﻿@model Gestor.Models.DfxProdRev
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>DfxProdRev</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdUnidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdUnidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecoCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecoCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateioDfixProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateioDfixProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateioDfixUnidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateioDfixUnidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoiFabrica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoiFabrica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DespsFabrica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DespsFabrica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DespsDepComercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DespsDepComercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DespsDeptAdminLog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DespsDeptAdminLog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdRolos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdRolos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateioDfixProdutoUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateioDfixProdutoUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProporcaoCusto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProporcaoCusto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProporcaoEmCxs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProporcaoEmCxs)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retornar a lista", "Index")
+</p>

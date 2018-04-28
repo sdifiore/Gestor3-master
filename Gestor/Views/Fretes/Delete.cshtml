@@ -1,0 +1,73 @@
+﻿@model Gestor.Models.Frete
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Frete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CifGrandeSp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CifGrandeSp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CifForaGrandeSp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CifForaGrandeSp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegioesIcms18)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegioesIcms18)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegioesIcms12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegioesIcms12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegioesIcms7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegioesIcms7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

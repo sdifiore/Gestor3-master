@@ -1,0 +1,313 @@
+﻿@model IEnumerable<Gestor.Models.Insumo>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Insumo> insumos = ViewBag.OnePageHistory;
+}
+
+@{
+    string[] unity = new string[]
+{
+"null",
+"caixa",
+"peça",
+"kilograma",
+"metro",
+"rolo",
+"milheiro",
+"null",
+"não informado",
+"hora",
+"unidade",
+"litro"
+
+};
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo insumo", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Insumoes", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadeId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo.Apelido)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.Apelido)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Familia.Apelido)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Linha.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cotacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoUsd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoRs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cofins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespExtra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespImport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Finalidade.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadeConsumoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdUnddConsumo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdMltplCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FormaPgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prazo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prazo2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctPgto1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImportPzPagDesp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrcBrtCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtIcms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtIpi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtPis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CrdtCofins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumCrdImpostos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DspImportacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoExtra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Custo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoUndCnsm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PgtFornecImp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsoStru)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in insumos)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.InsumoId })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.InsumoId })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.InsumoId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => unity[item.UnidadeId])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClasseCusto.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Familia.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Linha.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cotacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoUsd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoRs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ipi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cofins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DespExtra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DespImport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Finalidade.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => unity[item.UnidadeConsumoId])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdUnddConsumo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdMltplCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaPgto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prazo1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prazo2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctPgto1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportPzPagDesp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrcBrtCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CrdtIcms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CrdtIpi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CrdtPis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CrdtCofins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumCrdImpostos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DspImportacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoExtra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoUndCnsm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PgtFornecImp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsoStru)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.InsumoId })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.InsumoId })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.InsumoId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

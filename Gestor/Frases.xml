@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Branco>BRANCO</Branco>
+  <BrancoB>BRANCOB</BrancoB>
+  <CompactacaoPTFE>Compactação PTFE Puro, kgf/cm2</CompactacaoPTFE>
+  <CustoFixoAdmin>Custos Fixos Adminsitrativo</CustoFixoAdmin>
+  <CustoFixoComComex>Custos Fixos de Comercialização COMEX</CustoFixoComComex>
+  <CustoFixoComGeral>Custos Fixos de Comercialização GERAL</CustoFixoComGeral>
+  <CustoIndiretoFabrica>Custos Indiretos de Fabricação</CustoIndiretoFabrica>
+  <DensidadeCordaoSeco>Densidade do cordão seco:</DensidadeCordaoSeco>
+  <DensidadePadraoPreForma>Densidade Padrão da Pré-Forma</DensidadePadraoPreForma>
+  <DensidadePadraoSinterizado>Densidade Padrão para Sinterizado</DensidadePadraoSinterizado>
+  <DespesaCobranca>Despesas de Cobrança sobre Fat. Bruto</DespesaCobranca>
+  <DespesaTotalCustoFixo>Total de Custo Fixo</DespesaTotalCustoFixo>
+  <EficPadraoOpTubo>Efic. Padrão das Oper. Tubos</EficPadraoOpTubo>
+  <EnergiaAguaEsgoto>Energia Elétrica/Água e Esgoto</EnergiaAguaEsgoto>
+  <EnsaioEstanque>Ensaio Estanqueidade, min/lance</EnsaioEstanque>
+  <EnsaioEstouro>Ensaio Estouro, min/teste</EnsaioEstouro>
+  <FOB>FOB</FOB>
+  <FreteNacionalPadrao>Frete nacional padrão para Exportação (Santos ou Foz)</FreteNacionalPadrao>
+  <GrupoRateioRevenda>Revenda</GrupoRateioRevenda>
+  <GrupoRateioTubo>tubo</GrupoRateioTubo>
+  <IndiceGestaoVenda>Indice de Gestão de Vendas</IndiceGestaoVenda>
+  <IndicePrecoVendaTubo>TUBO</IndicePrecoVendaTubo>
+  <Insumos>Insumos/Matérias-Primas</Insumos>
+  <InsumoNaoExistente>999999</InsumoNaoExistente>
+  <IsoparL>Isopar L</IsoparL>
+  <ItemNaoExiste>999999</ItemNaoExiste>
+  <LoteMinimoTubos>Lote mínimo Tubos (Horas de Extrusão)</LoteMinimoTubos>
+  <LoteMinTubos2>Lote mínimo Tubos - 2º Critério: qt.PFs</LoteMinTubos2>
+  <LubrificantePctPadrao>Lubrificante - % padrão</LubrificantePctPadrao>
+  <Manufaturado>Manufaturado</Manufaturado>
+  <ManutencaoIndustrial>Manutenção Industrial</ManutencaoIndustrial>
+  <MercadoriaRevenda>Mercadoria para Revenda</MercadoriaRevenda>
+  <OcupacaoMOSinterizacao>Tx.Ocup MO Op. Sinterização</OcupacaoMOSinterizacao>
+  <NaoDefinida>Não Definida</NaoDefinida>
+  <ND>ND</ND>
+  <DevolucaoAGVendas>Dev.</DevolucaoAGVendas>
+  <OutrasDespesasIndiretasFabrica>Outras despesas indiretas de fábrica</OutrasDespesasIndiretasFabrica>
+  <PadraoFixo17>Resina Padrão adotada PTFE BrancoB</PadraoFixo17>
+  <PadraoFixo18>Resina Padrão adotada PTFE BrancoC</PadraoFixo18>
+  <PadraoFixo19>Resina Padrão adotada PTFE Translúcido</PadraoFixo19>
+  <PesagemCarga>Pesagens para carga de 16kg</PesagemCarga>
+  <PessoalIndiretoFabrica>Pessoal Indireto de Fábrica</PessoalIndiretoFabrica>
+  <ProdutoNaoExistente>999999</ProdutoNaoExistente>
+  <Revenda>Revenda</Revenda>
+  <SemanaEstoquePtfe>PTFE</SemanaEstoquePtfe>
+  <SemanaEstoqueDemais>Demais</SemanaEstoqueDemais>
+  <SequenciaA>A</SequenciaA>
+  <SequenciaB>B</SequenciaB>
+  <SequenciaC>C</SequenciaC>
+  <SequenciaD>D</SequenciaD>
+  <SequenciaE1>E1</SequenciaE1>
+  <SequenciaE2>E2</SequenciaE2>
+  <ServicoTerceiroFabrica>Serviços de Terceiros p/ Fábrica</ServicoTerceiroFabrica>
+  <Subproduto>Sub-produto</Subproduto>
+  <Subproduto2>Subproduto</Subproduto2>
+  <Sucata>Sucata</Sucata>
+  <SucatasAparasTubos>Sucatas e Aparas Tubos</SucatasAparasTubos>
+  <Taxa30DDL>Taxa financeira para 30 dias</Taxa30DDL>
+  <TaxaEfetivaVendaNacional>Taxa Financeira Efetiva para Vendas Nacionais</TaxaEfetivaVendaNacional>
+  <TaxaOcupacaoMOPesagem>Tx.Ocup MO Op. Pesagens</TaxaOcupacaoMOPesagem>
+  <TaxaOcupacaoMOTesteEstanque>Tx.Ocup MO Op. Teste Estanqueidade</TaxaOcupacaoMOTesteEstanque>
+  <TaxaOcupacaoMOTesteEstouro>Tx.Ocup MO Op. Teste Estouro</TaxaOcupacaoMOTesteEstouro>
+  <TaxaOcupacaoEmbalamento>Tx.Ocup MO Op. Embalagem</TaxaOcupacaoEmbalamento>
+  <TaxaOcupacaoMOExtrusao>Tx.Ocup MO Op. Extrusão</TaxaOcupacaoMOExtrusao>
+  <TaxaOcupacaoMOExtrusora>Tx.Ocup MO Op. Prep. Extrusoras</TaxaOcupacaoMOExtrusora>
+  <TaxaOcupacaoMOInspecao>Tx.Ocup MO Op. Inspeção</TaxaOcupacaoMOInspecao>
+  <Transl>TRANSL</Transl>
+  <TempoConferirPeso>Tempo p/ conferir peso aditivos, min</TempoConferirPeso>
+  <TempoDosagemLub>Tempo de dosagem Lubrificante, min</TempoDosagemLub>
+  <TempoEmbalamento>Tempo de embalamento, min/unidade</TempoEmbalamento>
+  <TempoOcupacaoMOMIstura>Tx.Ocup MO Op. Mistura</TempoOcupacaoMOMIstura>
+  <TempoPadraoMistura>Tempo padrão ciclo de mistura, min</TempoPadraoMistura>
+  <TempoPadraoPrepExtrusora>Tempo padrão preparo extrusora, min</TempoPadraoPrepExtrusora>
+  <TempoPeneiramento>Tempo peneiramento, min/kg</TempoPeneiramento>
+  <TipoNaoInformado>Não Informado</TipoNaoInformado>
+  <TipoVendaExportacao>EXP</TipoVendaExportacao>
+  <TipoVendaNacional>NAC</TipoVendaNacional>
+  <TubosCordoes>Tubos PTFE</TubosCordoes>
+  <UnidadeHora>hora</UnidadeHora>
+  <UnidadeNaoInformada>Não Informada</UnidadeNaoInformada>
+  <UnidadeUnidade>unidade</UnidadeUnidade>
+  <VelPadraoInspecUDC3>Veloc. Padrão Inspeção UDC3, m/min</VelPadraoInspecUDC3>
+</root>

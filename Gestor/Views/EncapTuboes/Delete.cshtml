@@ -1,0 +1,113 @@
+﻿@model Gestor.Models.EncapTubo
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Encapamento Tubos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DextRevest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DextRevest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResinaBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResinaBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aditivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aditivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DenRev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DenRev)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoRevest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoRevest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VelRevest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VelRevest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctCarga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctCarga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Master)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Master)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("retornar a lista", "Index")
+        </div>
+    }
+</div>

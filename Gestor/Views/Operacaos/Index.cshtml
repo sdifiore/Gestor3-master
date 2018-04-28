@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Gestor.Models.Operacao>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Operacao> operacoes = ViewBag.OnePageHistory;
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar nova operação", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Operacaos", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Setor.Codigo)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoOperacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SetorProducao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxaOcupacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IneficienciaAdotada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdMaquinas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Custo)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in operacoes)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.OperacaoId })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.OperacaoId })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.OperacaoId })
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Setor.Codigo)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoOperacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SetorProducao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxaOcupacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IneficienciaAdotada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdMaquinas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custo)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.OperacaoId })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.OperacaoId })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.OperacaoId })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

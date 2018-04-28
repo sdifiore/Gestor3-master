@@ -1,0 +1,422 @@
+﻿@model IEnumerable<Gestor.Models.Produto>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Produto> prods = ViewBag.OnePageHistory;
+}
+@{
+    string[] producao = new string[]
+{
+"null",
+"IND",
+"BEN",
+"ND",
+
+};
+}
+<h2>Índice</h2>
+<p>
+    @Html.ActionLink("Criar novo produto", "Create")
+</p>
+@using (Html.BeginForm("Search", "Produtoes", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidade.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familia.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Linha.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesoLiquido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdUnid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dominio.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoProdId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RefAuxiliarProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtUnPorUnArmz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesoLiquidoCalc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemStru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustODirTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMatUltmEtapa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMatEtapa1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMatEtapa2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMatEtapa3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstTotMaterial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoDirMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasModUltmEtapa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasModEtapa1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasModEtapa2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasModTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CapProdHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoteMinimo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsoStru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoDir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelModCstDir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMatEtapaFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMatEtapa1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMatEtapa2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMatEtapa3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoUnidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoiFabricacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutrosCustosFab)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComacsComtexFpv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminLogFpv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RsMoiDespFabHMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RsSgNAHMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoTotalAnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoiFabricAnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutrosCustosFabricAnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoComacsCmtexAnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminAnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropCustoFixoTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstDirUnidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstIndirUnidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctPtfePeso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropCustoFixoTotal)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.PctPtfePeso)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Acoes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventosAgVendasHistorico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in prods)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClasseCusto.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Familia.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Linha.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupoRateio.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesoLiquido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ipi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdUnid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dominio.Descricao)
+            </td>
+            <td>
+                @producao[item.TipoProdId]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefAuxiliarProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtUnPorUnArmz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesoLiquidoCalc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemStru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustODirTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstMatUltmEtapa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstMatEtapa1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstMatEtapa2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstMatEtapa3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstTotMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoDirMod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasModUltmEtapa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasModEtapa1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasModEtapa2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasModTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapProdHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoteMinimo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsoStru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoDir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RelModCstDir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctMatEtapaFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctMatEtapa1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctMatEtapa2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctMatEtapa3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoUnidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoFixoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoiFabricacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutrosCustosFab)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComacsComtexFpv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoFixoAdminLogFpv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RsMoiDespFabHMod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RsSgNAHMod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoFixoTotalAnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoiFabricAnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutrosCustosFabricAnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoFixoComacsCmtexAnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustoFixoAdminAnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropCustoFixoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstDirUnidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CstIndirUnidade)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PctPtfePeso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropCustoFixoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventosAgVendasHistorico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

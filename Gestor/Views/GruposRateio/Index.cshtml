@@ -1,0 +1,225 @@
+﻿@model IEnumerable<Gestor.Models.GrupoRateio>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.GrupoRateio> grupos = ViewBag.OnePageHistory;
+}
+
+<h2>Índice</h2>
+
+@using (Html.BeginForm("Search", "GruposRateio", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Criar novo grupo de rateio", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tubo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiotec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gxpuro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gxgraf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Graxa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Revenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in grupos)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.GrupoRateioId })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.GrupoRateioId })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.GrupoRateioId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Fita);
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Fita), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Fita), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Fita);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Tubo);
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Tubo), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Tubo), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Tubo);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Fiotec);
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Fiotec), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Fiotec), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Fiotec);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Gxpuro);
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Gxpuro), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Gxpuro), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Gxpuro);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Gxgraf);
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Gxgraf), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Gxgraf), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Gxgraf);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Graxa);
+                }
+                else if (item.Apelido == "GR0005")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Graxa), "Graxa")
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Graxa), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Graxa), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Graxa);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Revenda);
+                }
+                else if (item.Apelido == "GR0009")
+                {
+                    @Html.ActionLink(String.Format("{0:P2}", item.Revenda), "Taxa")
+                }
+                else if (item.Apelido == "GR0013")
+                {
+                    @Html.ActionLink(String.Format("{0:N2}", item.Revenda), "Distribuicao")
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Revenda);
+                }
+            </td>
+            <td>
+                @if (item.Apelido == "GR0008" || item.Apelido == "GR0009" || item.Apelido == "GR0010")
+                {
+                    @String.Format("{0:P2}", item.Total);
+                }
+                else
+                {
+                    @String.Format("{0:N2}", item.Total);
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.GrupoRateioId })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.GrupoRateioId })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.GrupoRateioId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

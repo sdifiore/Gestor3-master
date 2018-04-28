@@ -1,0 +1,83 @@
+﻿@model Gestor.Models.Ajuste
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Ajuste</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            De
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origem.Apelido)
+        </dd>
+        
+        <dt>
+            Para
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atual.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoAlteracao.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoAlteracao.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnidadeDeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnidadeDeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnidadeParaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnidadeParaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medida)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

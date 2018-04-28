@@ -1,0 +1,148 @@
+﻿@model IEnumerable<Gestor.Models.DfxProdRev>
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar novo DFxProdRev", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "DfxProdRevs", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+
+        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidade.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdUnidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioDfixProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioDfixUnidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoiFabrica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespsFabrica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespsDepComercial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DespsDeptAdminLog)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdRolos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RateioDfixProdutoUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProporcaoCusto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProporcaoEmCxs)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidade.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdUnidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateioDfixProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateioDfixUnidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoiFabrica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DespsFabrica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DespsDepComercial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DespsDeptAdminLog)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdRolos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateioDfixProdutoUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProporcaoCusto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProporcaoEmCxs)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

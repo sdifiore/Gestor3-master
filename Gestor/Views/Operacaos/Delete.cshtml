@@ -1,0 +1,97 @@
+﻿@model Gestor.Models.Operacao
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Operacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Setor.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Setor.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoOperacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoOperacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetorProducao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetorProducao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxaOcupacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxaOcupacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IneficienciaAdotada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IneficienciaAdotada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdMaquinas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdMaquinas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Custo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Custo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

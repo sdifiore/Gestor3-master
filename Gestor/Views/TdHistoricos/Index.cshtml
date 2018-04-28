@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Gestor.Models.TdHistorico>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.TdHistorico> tds = ViewBag.OnePageHistory;
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Novo lançamento para TD Histórico", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "TdHistoricos", FormMethod.Post))
+{
+    <p>
+        Totalizador: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Totalizador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropRecLiq)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropPeso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropHoras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropQuant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TercRecLiq)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TercPeso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TercHoras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TercQuant)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in tds)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Totalizador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropRecLiq)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropPeso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropHoras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropQuant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TercRecLiq)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TercPeso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TercHoras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TercQuant)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

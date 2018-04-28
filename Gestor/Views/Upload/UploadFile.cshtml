@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "UploadFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string retorno = (string)ViewBag.retorno;
+}
+
+<h2>Carregar arquivo</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+@using (Html.BeginForm(retorno, "Upload", FormMethod.Post, new {enctype = "multipart/form-data" }))
+{
+<div>
+    @Html.TextBox("file", "", new { type = "file" }) <br />
+    <input type="submit" value="Carregar" class="btn btn-default" />
+    <br />
+    <br />
+    <p><h4>A última atualização ocorreu em @ViewBag.UltimaAtualizacao</h4></p>
+    <p><h3>@ViewBag.Message</h3></p>
+</div>
+}

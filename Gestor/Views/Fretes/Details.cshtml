@@ -1,0 +1,67 @@
+﻿@model Gestor.Models.Frete
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Frete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CifGrandeSp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CifGrandeSp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CifForaGrandeSp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CifForaGrandeSp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegioesIcms18)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegioesIcms18)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegioesIcms12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegioesIcms12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegioesIcms7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegioesIcms7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.FreteId }) |
+    @Html.ActionLink("Retornar a lista", "Index")
+</p>

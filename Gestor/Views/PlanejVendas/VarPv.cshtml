@@ -1,0 +1,185 @@
+﻿@model List<Gestor.Models.VarPv>
+@{
+    ViewBag.Title = "Alterar PV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Alterar PV</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table table-hover">
+
+        <tr>
+            <th>Item</th>
+            <th>Descrição</th>
+            <th style="min-width: 150px;">PV -11</th>
+            <th style="min-width: 150px;">PV -10</th>
+            <th style="min-width: 150px;">PV -9</th>
+            <th style="min-width: 150px;">PV -8</th>
+            <th style="min-width: 150px;">PV -7</th>
+            <th style="min-width: 150px;">PV -6</th>
+            <th style="min-width: 150px;">PV -5</th>
+            <th style="min-width: 150px;">PV -4</th>
+            <th style="min-width: 150px;">PV -3</th>
+            <th style="min-width: 150px;">PV -2</th>
+            <th style="min-width: 150px;">PV -1</th>
+            <th style="min-width: 150px;">PV</th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            @Html.HiddenFor(m => Model[i].Id)
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model[i].Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model[i].Descricao)
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-11:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos12, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos12, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-10:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos11, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos11, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-9:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos10, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos10, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-8:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos09, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos09, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-7:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos08, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos08, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-6:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos07, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos07, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-5:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos06, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos06, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-4:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos05, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos05, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-3:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos04, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos04, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-2:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos03, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos03, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV-1:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos02, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos02, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td style="min-width: 150px">
+                <div class="form-group">
+                    <div class="control-label col-md-2" style="min-width: 150px">PV:</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model[i].VarPvMenos01, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarPvMenos01, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+        }
+
+    </table>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Gravar e Calcular" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Retornar a lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

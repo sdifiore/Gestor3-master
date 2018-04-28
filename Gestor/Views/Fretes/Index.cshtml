@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Gestor.Models.Frete>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Frete> fretes = ViewBag.OnePageHistory;
+}
+<h2>Índice</h2>
+<p>
+    @Html.ActionLink("Criar nova entrada de frete", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.CifGrandeSp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CifForaGrandeSp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegioesIcms18)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegioesIcms12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegioesIcms7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in fretes)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.FreteId })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.FreteId })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.FreteId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CifGrandeSp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CifForaGrandeSp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegioesIcms18)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegioesIcms12)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegioesIcms7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.FreteId })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.FreteId })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.FreteId })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Gestor.Models.IcmsFrete>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.IcmsFrete> impostos = ViewBag.OnePageHistory;
+}
+<h2>Índice</h2>
+<p>
+    @Html.ActionLink("Criar nova relação ICMS Frete", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "IcmsFretes", FormMethod.Post))
+{
+    <p>
+        Rótulo: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rotulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frete)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in impostos)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rotulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Frete)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

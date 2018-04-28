@@ -1,0 +1,146 @@
+﻿@model Gestor.Models.PreForma
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Pré-Forma</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreFormaNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreFormaNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaDiamE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaDiamE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VaretaDiamI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaretaDiamI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medidas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medidas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comprimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comprimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tup)
+        </dd>
+
+        <dt>
+            Prensa de Pré-Forma
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrensaPreForma.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preparo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preparo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrocaPf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrocaPf)
+        </dd>
+        <dt>
+            Extrusora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extrusora.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecaoPf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecaoPf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KgfPrensagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KgfPrensagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PressaoOleo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PressaoOleo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiamPistaoHidraulico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiamPistaoHidraulico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KgPfUmida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KgPfUmida)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

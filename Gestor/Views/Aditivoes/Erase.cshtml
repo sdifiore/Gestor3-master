@@ -1,0 +1,17 @@
+﻿@model Gestor.Models.Estrutura
+@{
+    ViewBag.Title = "Confirmar Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Confirmar Eliminar</h2>
+<h3>CONFIRME que realmente deseja eliminar o registro?</h3>
+@Html.Partial("Common")
+@using (Html.BeginForm("Erase", "Aditivos", new { Id = Model.Id }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        @Html.ActionLink("Retornar a lista sem eliminar", "Index")
+    </div>
+}

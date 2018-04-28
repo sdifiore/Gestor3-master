@@ -1,0 +1,51 @@
+﻿@model Gestor.Models.Indice
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Índice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proprio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proprio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Terceiros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terceiros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exportacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exportacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retronar a lista", "Index")
+</p>

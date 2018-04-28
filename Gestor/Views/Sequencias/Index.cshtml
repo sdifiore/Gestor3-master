@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Gestor.Models.Sequencia>
+
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Sequencia> sequencias = ViewBag.OnePageHistory;
+}
+<h2>Índice</h2>
+<p>
+    @Html.ActionLink("Criar nova sequência", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Sequencias", FormMethod.Post))
+{
+    <p>
+        Sequência: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in sequencias)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.SequenciaId })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.SequenciaId })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.SequenciaId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.SequenciaId })<br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.SequenciaId })<br />
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.SequenciaId })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

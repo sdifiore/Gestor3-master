@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Gestor.Models.DetalheProduto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesoLiquido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemStrut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstDirIndd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMtsUltmEtp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMtsEtp1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMtsEtp2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstMtsEtp3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstTotMts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstDirMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HrsMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HrsMod1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HrsMod2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HrsTotMod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CpcdProdHrr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoteMin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsoStrut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CstDirRgKg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelModCst)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMtrFnl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMtrEtp1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMtrEtp2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctMtrEtp3)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PesoLiquido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemStrut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstDirIndd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstMtsUltmEtp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstMtsEtp1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstMtsEtp2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstMtsEtp3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstTotMts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstDirMod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HrsMod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HrsMod1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HrsMod2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HrsTotMod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CpcdProdHrr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoteMin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsoStrut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CstDirRgKg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelModCst)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctMtrFnl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctMtrEtp1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctMtrEtp2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PctMtrEtp3)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DetalheProdutoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DetalheProdutoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DetalheProdutoId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Gestor.Models.Graxa>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Índice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IPagedList<Gestor.Models.Graxa> graxas = ViewBag.OnePageHistory;
+}
+
+<h2>Índice</h2>
+
+<p>
+    @Html.ActionLink("Criar nova graxa", "Create")
+</p>
+
+@using (Html.BeginForm("Search", "Graxas", FormMethod.Post))
+{
+    <p>
+        Código: @Html.TextBox("search")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+<table class="table table-hover">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Embalagem.Sigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resina.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctSilicone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctSilica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PctPtfe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesagemMinUn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mistura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmbalagemMedida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rotulagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoteMinino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ptfe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silicone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesagemH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MisturaH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmbalarH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RotularH)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in graxas)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Embalagem.Sigla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resina.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctSilicone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctSilica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PctPtfe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesagemMinUn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mistura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmbalagemMedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rotulagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoteMinino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ptfe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Silicone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Silica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesagemH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MisturaH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmbalarH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RotularH)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

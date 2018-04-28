@@ -1,0 +1,89 @@
+﻿@model Gestor.Models.Sucata
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Sucata</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Apelido)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cartucho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cartucho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carretel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carretel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CRefile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CRefile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumbo216)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumbo216)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubProduto)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink(" Retornar a lista", "Index")
+        </div>
+    }
+</div>

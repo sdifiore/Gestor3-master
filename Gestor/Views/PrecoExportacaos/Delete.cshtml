@@ -1,0 +1,217 @@
+﻿@model Gestor.Models.PrecoExportacao
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Preco Exportação</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CondicaoPreco.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CondicaoPreco.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinhaUn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinhaUn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoLiquido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoLiquido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtUnid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtUnid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.De2A5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.De2A5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.De5A10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.De5A10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.De10A20)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.De10A20)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acima20)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acima20)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LlMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LlMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctRateio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctRateio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CondPag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CondPag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IEfetiva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IEfetiva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctEspecFrete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctEspecFrete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DespExpPadrao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DespExpPadrao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctDespExportEspec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctDespExportEspec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PvFobMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PvFobMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoDireto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustoDireto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateioCustoFixo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateioCustoFixo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PvFobMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PvFobMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorCifPtfe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorCifPtfe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelPtfeSobrePv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelPtfeSobrePv)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retronar a lista", "Index")
+        </div>
+    }
+</div>

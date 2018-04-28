@@ -1,0 +1,185 @@
+﻿@model Gestor.Models.Graxa
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Graxa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Embalagem.Sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Embalagem.Sigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resina.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resina.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctSilicone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctSilicone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctSilica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctSilica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PctPtfe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PctPtfe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesagemMinUn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesagemMinUn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mistura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mistura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmbalagemMedida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmbalagemMedida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rotulagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rotulagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoteMinino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoteMinino)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ptfe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ptfe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silicone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silicone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesagemH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesagemH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MisturaH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MisturaH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmbalarH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmbalarH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RotularH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RotularH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

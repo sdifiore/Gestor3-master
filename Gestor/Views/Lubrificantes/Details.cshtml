@@ -1,0 +1,62 @@
+﻿@model Gestor.Models.Lubrificante
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Lubrificante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Ref)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ref)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Insumo.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insumo.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insumo.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insumo.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insumo.CustoUndCnsm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insumo.CustoUndCnsm)
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retronar a lista", "Index")
+</p>

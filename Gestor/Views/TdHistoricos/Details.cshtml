@@ -1,0 +1,91 @@
+﻿@model Gestor.Models.TdHistorico
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TdHistorico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Totalizador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Totalizador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropHoras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropHoras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropQuant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropQuant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TercRecLiq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TercRecLiq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TercPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TercPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TercHoras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TercHoras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TercQuant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TercQuant)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

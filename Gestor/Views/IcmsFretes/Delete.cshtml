@@ -1,0 +1,49 @@
+﻿@model Gestor.Models.IcmsFrete
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem certeza que deseja eliminar o registro?</h3>
+<div>
+    <h4>Icms Frete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rotulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rotulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frete)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Retornar a lista", "Index")
+        </div>
+    }
+</div>

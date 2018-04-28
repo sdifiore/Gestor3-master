@@ -1,0 +1,112 @@
+﻿@model List<Gestor.Models.VarTc>
+@{
+    ViewBag.Title = "Alterar TC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Alterar TC</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <table class="table table-hover">
+
+        <tr>
+            <th>Item</th>
+            <th>Descrição</th>
+            <th>Critério</th>
+            <th>Var TC1</th>
+            <th>Var TC2</th>
+            <th>Var TC3</th>
+            <th>Var TC4</th>
+        </tr>
+
+
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            @Html.HiddenFor(m => Model[i].Id)
+
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => Model[i].Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model[i].Descricao)
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class="control-label col-md-2 spleft">Crit.:</div>
+                    <div class="col-md-10 spright">
+                        @Html.EditorFor(model => Model[i].Criterio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].Criterio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class="control-label col-md-2 spleft">TC1:</div>
+                    <div class="col-md-10 spright">
+                        @Html.EditorFor(model => Model[i].VarTc1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarTc1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class="control-label col-md-2 spleft">TC2:</div>
+                    <div class="col-md-10 spright">
+                        @Html.EditorFor(model => Model[i].VarTc2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarTc2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class="control-label col-md-2 spleft">TC3:</div>
+                    <div class="col-md-10 spright">
+                        @Html.EditorFor(model => Model[i].VarTc3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarTc3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class="control-label col-md-2 spleft">TC4:</div>
+                    <div class="col-md-10 spright">
+                        @Html.EditorFor(model => Model[i].VarTc4, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => Model[i].VarTc4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+        }
+
+    </table>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Gravar e Calcular" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Retornar a lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
