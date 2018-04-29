@@ -104,6 +104,7 @@ namespace Gestor.Controllers
         }
 
         // GET: DespesaExportacaos/Delete/5
+        [Route("Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,8 +121,19 @@ namespace Gestor.Controllers
 
         // POST: DespesaExportacaos/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Route("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
+        {
+            DespesaExportacao despesaExportacao = db.DespesasExportacao.Find(id);
+            return View("Erase", despesaExportacao);
+        }
+
+        // POST: DespesaExportacaos/Erase/5
+        [HttpPost, ActionName("Erase")]
+        [Route("Erase")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
         {
             DespesaExportacao despesaExportacao = db.DespesasExportacao.Find(id);
             db.DespesasExportacao.Remove(despesaExportacao);

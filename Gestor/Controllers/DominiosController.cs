@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -109,14 +110,38 @@ namespace Gestor.Controllers
             return View(dominio);
         }
 
-        // POST: Dominios/Delete/5
+        // POST: CustoFolhas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Dominio dominio = db.Dominios.Find(id);
-            db.Dominios.Remove(dominio);
-            db.SaveChanges();
+            return View("Erase", dominio);
+        }
+
+        // POST: CustoFolhas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            try
+            {
+                Dominio dominio = db.Dominios.Find(id);
+                db.Dominios.Remove(dominio);
+                db.SaveChanges();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                DbLogger.Log(Reason.Info, $"Tentativa de eliminar Domínio id {id} existindo PlanejProducao associado");
+                return Content("Não é possível eliminar pois existe um PlanejProducao associado a esse Domínio.");
+            }
+
+            catch (Exception ex)
+            {
+                DbLogger.Log(Reason.Error, $"Erro ao tentar eliminar Domínio Id {id}: {ex}");
+                return Content("Domínio não eliminado devido a erro. Tente novamente ou notifique suporte.");
+            }
+
             return RedirectToAction("Index");
         }
 

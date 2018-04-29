@@ -116,6 +116,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
+            return View("Erase", despesaFixa);
+        }
+
+        // POST: DespesaFixas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            DespesaFixa despesaFixa = db.DespesasFixas.Find(id);
             db.DespesasFixas.Remove(despesaFixa);
             db.SaveChanges();
             return RedirectToAction("Index");

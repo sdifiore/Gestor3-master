@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Extrusora extrusora = db.Extrusoras.Find(id);
+            return View("Erase", extrusora);
+        }
+
+        // POST: Extrusoras/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Extrusora extrusora = db.Extrusoras.Find(id);
             db.Extrusoras.Remove(extrusora);
             db.SaveChanges();
             return RedirectToAction("Index");

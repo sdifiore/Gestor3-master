@@ -72,8 +72,8 @@
     {
         <tr>
             <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) <br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) <br />
                 @Html.ActionLink("Elimninar", "Delete", new { id = item.Id })
             </td>
             <td>
@@ -119,9 +119,9 @@
                 @Html.DisplayFor(modelItem => item.Somas)
             </td>
             <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Elimninar", "Delete", new { id = item.Id })
+                @Html.ActionLink("Alterar", "Edit", new { id = item.Id }) <br />
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) <br />
+                @Html.ActionLink("Elimninar", "Delete", new { id = item.Id }) 
             </td>
         </tr>
     }

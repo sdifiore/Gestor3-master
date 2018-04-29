@@ -128,6 +128,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Embal embal = db.Embals.Find(id);
+            return View("Erase", embal);
+        }
+
+        // POST: Embals/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Embal embal = db.Embals.Find(id);
             db.Embals.Remove(embal);
             db.SaveChanges();
             return RedirectToAction("Index");

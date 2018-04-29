@@ -2559,6 +2559,18 @@
     <Content Include="Views\CuboEstoques\Erase.cshtml" />
     <Content Include="Views\CustoCargoDiretoes\Common.cshtml" />
     <Content Include="Views\CustoCargoDiretoes\Erase.cshtml" />
+    <Content Include="Views\CustoFolhas\Common.cshtml" />
+    <Content Include="Views\CustoFolhas\Erase.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Common.cshtml" />
+    <Content Include="Views\DespesaExportacaos\Erase.cshtml" />
+    <Content Include="Views\DespesaFixas\Common.cshtml" />
+    <Content Include="Views\DespesaFixas\Erase.cshtml" />
+    <Content Include="Views\Dominios\Common.cshtml" />
+    <Content Include="Views\Dominios\Erase.cshtml" />
+    <Content Include="Views\Embals\Common.cshtml" />
+    <Content Include="Views\Embals\Erase.cshtml" />
+    <Content Include="Views\Extrusoras\Common.cshtml" />
+    <Content Include="Views\Extrusoras\Erase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

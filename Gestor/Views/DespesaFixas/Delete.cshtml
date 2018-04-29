@@ -11,94 +11,11 @@
 <div>
     <h4>Despesa Fixa</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Despesa)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Despesa)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorTotal)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ValorTotal)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Comentario)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Comentario)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CodCrit)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CodCrit)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CriterioRateio)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CriterioRateio)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioFitas)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioFitas)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioTuboCordaoPerfil)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioTuboCordaoPerfil)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioFiotec)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioFiotec)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioFioGaxPtfePuro)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioFioGaxPtfePuro)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioFioGaxPtfeGraf)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioFioGaxPtfeGraf)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioGraxa)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioGraxa)
-        </dd>
-        @*<dt>
-            @Html.DisplayNameFor(model => model.RateioSucatas)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioSucatas)
-        </dd>*@
-        <dt>
-            @Html.DisplayNameFor(model => model.RateioRevenda)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RateioRevenda)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Somas)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Somas)
-        </dd>
-    </dl>
 
-    @using (Html.BeginForm()) {
+    @Html.Partial("Common")
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

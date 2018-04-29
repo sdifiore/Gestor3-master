@@ -11,106 +11,11 @@
 <div>
     <h4>Custo de Folha</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Area.Nome)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Area.Nome)
-        </dd>
+    @Html.Partial("Common")
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Data)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Salario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Salario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ferias)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ferias)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DecimoTerceiro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DecimoTerceiro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Plr)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Plr)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fgts)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fgts)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Inss)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Inss)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DespAgencia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DespAgencia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ConvMedico)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ConvMedico)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VAlimentacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VAlimentacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VTransporte)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VTransporte)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

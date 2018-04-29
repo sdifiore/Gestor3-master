@@ -1,4 +1,5 @@
-﻿@model Gestor.Models.CustoCargoDireto
+﻿@model Gestor.Models.Extrusora
+
 @{
     ViewBag.Title = "Confirmar Eliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,7 +7,7 @@
 <h2>Confirmar Eliminar</h2>
 <h3>CONFIRME que realmente deseja eliminar o registro?</h3>
 @Html.Partial("Common")
-@using (Html.BeginForm("Erase", "CustoCargoDiretoes", new { Id = Model.Id }))
+@using (Html.BeginForm("Erase", "Extrusoras", new { Id = Model.Id }))
 {
     @Html.AntiForgeryToken()
 
