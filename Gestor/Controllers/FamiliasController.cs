@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -115,9 +116,32 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Familia familia = db.Familias.Find(id);
-            db.Familias.Remove(familia);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Erase", familia);
+        }
+
+        // POST: Familias/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            try
+            {
+                Familia familia = db.Familias.Find(id);
+                db.Familias.Remove(familia);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+            {
+                DbLogger.Log(Reason.Atention, $"Tentativa de eliminar Família id {id} existindo PlanejProducao associado: {ex.Message} -- {ex.InnerException}");
+                return Content("Não é possível eliminar pois existe um PlanejProducao associado a essa Família.");
+            }
+
+            catch (Exception ex)
+            {
+                DbLogger.Log(Reason.Error, $"Erro ao tentar eliminar Família Id {id}: {ex.Message} -- {ex.InnerException}");
+                return Content("Domínio não eliminado devido a erro. Tente novamente ou notifique suporte.");
+            }
         }
 
         [HttpPost]

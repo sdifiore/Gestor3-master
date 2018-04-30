@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Pcp pcp = db.Pcps.Find(id);
+            return View("Erase", pcp);
+        }
+
+        // POST: Pcps/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Pcp pcp = db.Pcps.Find(id);
             db.Pcps.Remove(pcp);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -115,6 +115,15 @@ namespace Gestor.Models
         public ActionResult DeleteConfirmed(int id)
         {
             Linha linha = db.Linhas.Find(id);
+            return View("Erase", linha);
+        }
+
+        // POST: Linhas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Linha linha = db.Linhas.Find(id);
             db.Linhas.Remove(linha);
             db.SaveChanges();
             return RedirectToAction("Index");

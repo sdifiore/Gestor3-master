@@ -4,5 +4,6 @@
     {
         public const string Error = "Error";
         public const string Info = "Info";
+        public const string Atention = "Att";
     }
 }

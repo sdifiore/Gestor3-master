@@ -116,6 +116,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             QtdEmbalagem qtdEmbalagem = db.QtdEmbalagems.Find(id);
+            return View("Erase", qtdEmbalagem);
+        }
+
+        // POST: QtdEmbalagems/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            QtdEmbalagem qtdEmbalagem = db.QtdEmbalagems.Find(id);
             db.QtdEmbalagems.Remove(qtdEmbalagem);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             IcmsFrete icmsFrete = db.IcmsFretes.Find(id);
+            return View("Erase", icmsFrete);
+        }
+
+        // POST: IcmsFretes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            IcmsFrete icmsFrete = db.IcmsFretes.Find(id);
             db.IcmsFretes.Remove(icmsFrete);
             db.SaveChanges();
             return RedirectToAction("Index");

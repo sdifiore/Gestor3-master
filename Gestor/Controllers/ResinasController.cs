@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Resina resina = db.Resinas.Find(id);
+            return View("Erase", resina);
+        }
+
+        // POST: Resinas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Resina resina = db.Resinas.Find(id);
             db.Resinas.Remove(resina);
             db.SaveChanges();
             return RedirectToAction("Index");

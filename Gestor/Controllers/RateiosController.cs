@@ -117,6 +117,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Rateio rateio = db.Rateios.Find(id);
+            return View("Erase", rateio);
+        }
+
+        // POST: Rateios/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Rateio rateio = db.Rateios.Find(id);
             db.Rateios.Remove(rateio);
             db.SaveChanges();
             return RedirectToAction("Index");

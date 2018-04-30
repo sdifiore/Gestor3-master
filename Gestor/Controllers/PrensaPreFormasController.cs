@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
+            return View("Erase", prensaPreForma);
+        }
+
+        // POST: PrensaPreFormas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            PrensaPreForma prensaPreForma = db.PrensasPreForma.Find(id);
             db.PrensasPreForma.Remove(prensaPreForma);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -117,6 +117,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PadraoFixo padraoFixo = db.PadroesFixos.Find(id);
+            return View("Erase", padraoFixo);
+        }
+
+        // POST: PadraoFixoes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            PadraoFixo padraoFixo = db.PadroesFixos.Find(id);
             db.PadroesFixos.Remove(padraoFixo);
             db.SaveChanges();
             return RedirectToAction("Index");

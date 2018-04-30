@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             QtdMaquinas qtdMaquinas = db.QtdMaquinas.Find(id);
+            return View("Erase", qtdMaquinas);
+        }
+
+        // POST: QtdMaquinas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            QtdMaquinas qtdMaquinas = db.QtdMaquinas.Find(id);
             db.QtdMaquinas.Remove(qtdMaquinas);
             db.SaveChanges();
             return RedirectToAction("Index");

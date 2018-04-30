@@ -11,82 +11,11 @@
 <div>
     <h4>Operacao</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Setor.Codigo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Setor.Codigo)
-        </dd>
+    @Html.Partial("Common")
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CodigoOperacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CodigoOperacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SetorProducao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SetorProducao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TaxaOcupacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TaxaOcupacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IneficienciaAdotada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IneficienciaAdotada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comentario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comentario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.QtdMaquinas)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QtdMaquinas)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Custo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Custo)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

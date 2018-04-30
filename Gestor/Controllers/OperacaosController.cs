@@ -131,6 +131,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Operacao operacao = db.Operacoes.Find(id);
+            return View("Erase", operacao);
+        }
+
+        // POST: Operacaos/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Operacao operacao = db.Operacoes.Find(id);
             db.Operacoes.Remove(operacao);
             db.SaveChanges();
             return RedirectToAction("Index");

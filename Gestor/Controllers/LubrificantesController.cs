@@ -128,6 +128,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Lubrificante lubrificante = db.Lubrificantes.Find(id);
+            return View("Erase", lubrificante);
+        }
+
+        // POST: Lubrificantes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Lubrificante lubrificante = db.Lubrificantes.Find(id);
             db.Lubrificantes.Remove(lubrificante);
             db.SaveChanges();
             return RedirectToAction("Index");

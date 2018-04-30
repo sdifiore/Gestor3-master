@@ -1189,6 +1189,10 @@
     <Compile Include="Migrations\201804261302356_AtualizacaoFieldsToMemoriaTable.Designer.cs">
       <DependentUpon>201804261302356_AtualizacaoFieldsToMemoriaTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804301152338_MessageInLogDataIlimitedChars.cs" />
+    <Compile Include="Migrations\201804301152338_MessageInLogDataIlimitedChars.Designer.cs">
+      <DependentUpon>201804301152338_MessageInLogDataIlimitedChars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Aumdim.cs" />
     <Compile Include="Models\Carga.cs" />
@@ -2571,6 +2575,42 @@
     <Content Include="Views\Embals\Erase.cshtml" />
     <Content Include="Views\Extrusoras\Common.cshtml" />
     <Content Include="Views\Extrusoras\Erase.cshtml" />
+    <Content Include="Views\Fabricantes\Common.cshtml" />
+    <Content Include="Views\Fabricantes\Erase.cshtml" />
+    <Content Include="Views\Familias\Common.cshtml" />
+    <Content Include="Views\Familias\Erase.cshtml" />
+    <Content Include="Views\FatHistorico\Common.cshtml" />
+    <Content Include="Views\FatHistorico\Erase.cshtml" />
+    <Content Include="Views\IcmsFretes\Common.cshtml" />
+    <Content Include="Views\IcmsFretes\Erase.cshtml" />
+    <Content Include="Views\Indices\Common.cshtml" />
+    <Content Include="Views\Indices\Erase.cshtml" />
+    <Content Include="Views\Linhas\Common.cshtml" />
+    <Content Include="Views\Linhas\Erase.cshtml" />
+    <Content Include="Views\Lubrificantes\Common.cshtml" />
+    <Content Include="Views\Lubrificantes\Erase.cshtml" />
+    <Content Include="Views\QtdMaquinas\Common.cshtml" />
+    <Content Include="Views\QtdMaquinas\Erase.cshtml" />
+    <Content Include="Views\Marcas\Common.cshtml" />
+    <Content Include="Views\Marcas\Erase.cshtml" />
+    <Content Include="Views\MedidaFitas\Common.cshtml" />
+    <Content Include="Views\MedidaFitas\Erase.cshtml" />
+    <Content Include="Views\Operacaos\Common.cshtml" />
+    <Content Include="Views\Operacaos\Erase.cshtml" />
+    <Content Include="Views\PadraoFixoes\Common.cshtml" />
+    <Content Include="Views\PadraoFixoes\Erase.cshtml" />
+    <Content Include="Views\Pcps\Common.cshtml" />
+    <Content Include="Views\Pcps\Erase.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Common.cshtml" />
+    <Content Include="Views\PrensaPreFormas\Erase.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Common.cshtml" />
+    <Content Include="Views\QtdEmbalagems\Erase.cshtml" />
+    <Content Include="Views\Rateios\Common.cshtml" />
+    <Content Include="Views\Rateios\Erase.cshtml" />
+    <Content Include="Views\Resinas\Common.cshtml" />
+    <Content Include="Views\Resinas\Erase.cshtml" />
+    <Content Include="Views\SemanaEstoques\Common.cshtml" />
+    <Content Include="Views\SemanaEstoques\Erase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
@@ -3680,6 +3720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804261302356_AtualizacaoFieldsToMemoriaTable.resx">
       <DependentUpon>201804261302356_AtualizacaoFieldsToMemoriaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804301152338_MessageInLogDataIlimitedChars.resx">
+      <DependentUpon>201804301152338_MessageInLogDataIlimitedChars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

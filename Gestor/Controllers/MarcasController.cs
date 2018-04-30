@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Marca marca = db.Marcas.Find(id);
+            return View("Erase", marca);
+        }
+
+        // POST: Marcas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Marca marca = db.Marcas.Find(id);
             db.Marcas.Remove(marca);
             db.SaveChanges();
             return RedirectToAction("Index");

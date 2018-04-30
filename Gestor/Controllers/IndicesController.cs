@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Indice indice = db.Indices.Find(id);
+            return View("Erase", indice);
+        }
+
+        // POST: Indices/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Indice indice = db.Indices.Find(id);
             db.Indices.Remove(indice);
             db.SaveChanges();
             return RedirectToAction("Index");

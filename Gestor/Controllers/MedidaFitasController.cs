@@ -118,6 +118,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             MedidaFita medidaFita = db.MedidaFitas.Find(id);
+            return View("Erase", medidaFita);
+        }
+
+        // POST: MedidaFitas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            MedidaFita medidaFita = db.MedidaFitas.Find(id);
             db.MedidaFitas.Remove(medidaFita);
             db.SaveChanges();
             return RedirectToAction("Index");

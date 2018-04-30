@@ -17,7 +17,6 @@ namespace Gestor.Models
         public string Reason { get; set; }
 
         [Required]
-        [MaxLength(256)]
         public string Message { get; set; }
     }
 }

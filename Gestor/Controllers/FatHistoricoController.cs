@@ -44,7 +44,18 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CuboTrabalhado cuboTrabalhado = db.CubosTrabalhados.Find(id);
+            CuboTrabalhado cuboTrabalhado = db.CubosTrabalhados
+                .Include(c => c.CategoriaCliente)
+                .Include(c => c.Familia)
+                .Include(c => c.GrupoRateio)
+                .Include(c => c.Linha)
+                .Include(c => c.Marca)
+                .Include(c => c.TipoCliente)
+                .Include(c => c.TipoVenda)
+                .Include(c => c.Unidade)
+                .Include(c => c.Categoria)
+                .SingleOrDefault(c => c.Id == id);
+
             if (cuboTrabalhado == null)
             {
                 return HttpNotFound();
@@ -145,7 +156,19 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CuboTrabalhado cuboTrabalhado = db.CubosTrabalhados.Find(id);
+
+            CuboTrabalhado cuboTrabalhado = db.CubosTrabalhados
+                .Include(c => c.CategoriaCliente)
+                .Include(c => c.Familia)
+                .Include(c => c.GrupoRateio)
+                .Include(c => c.Linha)
+                .Include(c => c.Marca)
+                .Include(c => c.TipoCliente)
+                .Include(c => c.TipoVenda)
+                .Include(c => c.Unidade)
+                .Include(c => c.Categoria)
+                .SingleOrDefault(c => c.Id == id);
+
             if (cuboTrabalhado == null)
             {
                 return HttpNotFound();
@@ -153,10 +176,19 @@ namespace Gestor.Controllers
             return View(cuboTrabalhado);
         }
 
-        // POST: FatHistorico/Delete/5
+        // POST: CustoFolhas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
+        {
+            CuboTrabalhado cuboTrabalhado = db.CubosTrabalhados.Find(id);
+            return View("Erase", cuboTrabalhado);
+        }
+
+        // POST: CustoFolhas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
         {
             CuboTrabalhado cuboTrabalhado = db.CubosTrabalhados.Find(id);
             db.CubosTrabalhados.Remove(cuboTrabalhado);
