@@ -118,6 +118,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Setor setor = db.Setores.Find(id);
+            return View("Erase", setor);
+        }
+
+        // POST: Setors/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Setor setor = db.Setores.Find(id);
             db.Setores.Remove(setor);
             db.SaveChanges();
             return RedirectToAction("Index");

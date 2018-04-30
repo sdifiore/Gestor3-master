@@ -117,6 +117,15 @@ namespace Gestor
         public ActionResult DeleteConfirmed(int id)
         {
             Tipo tipo = db.Tipos.Find(id);
+            return View("Erase", tipo);
+        }
+
+        // POST: Tipoes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Tipo tipo = db.Tipos.Find(id);
             db.Tipos.Remove(tipo);
             db.SaveChanges();
             return RedirectToAction("Index");

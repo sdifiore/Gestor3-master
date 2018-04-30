@@ -1,0 +1,47 @@
+﻿@model Gestor.Models.Ajuste
+
+<dl class="dl-horizontal">
+    <dt>
+        De
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CodigoOriginal)
+    </dd>
+
+    <dt>
+        Para
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Atual.Apelido)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TipoAlteracao.Descricao)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TipoAlteracao.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.UnidadeDeId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.UnidadeDeId)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.UnidadeParaId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.UnidadeParaId)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Fator)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Fator)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Medida)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Medida)
+    </dd>
+</dl>

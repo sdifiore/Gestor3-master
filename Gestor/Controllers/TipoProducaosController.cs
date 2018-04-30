@@ -115,6 +115,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TipoProducao tipoProducao = db.TiposProducao.Find(id);
+            return View("Erase", tipoProducao);
+        }
+
+        // POST: TipoProducaos/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            TipoProducao tipoProducao = db.TiposProducao.Find(id);
             db.TiposProducao.Remove(tipoProducao);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -116,6 +116,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Uf uf = db.Ufs.Find(id);
+            return View("Erase", uf);
+        }
+
+        // POST: Ufs/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Uf uf = db.Ufs.Find(id);
             db.Ufs.Remove(uf);
             db.SaveChanges();
             return RedirectToAction("Index");

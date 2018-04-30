@@ -117,6 +117,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TipoCliente tipoCliente = db.TiposCliente.Find(id);
+            return View("Erase", tipoCliente);
+        }
+
+        // POST: TiposCliente/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            TipoCliente tipoCliente = db.TiposCliente.Find(id);
             db.TiposCliente.Remove(tipoCliente);
             db.SaveChanges();
             return RedirectToAction("Index");

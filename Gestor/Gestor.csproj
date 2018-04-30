@@ -2611,6 +2611,34 @@
     <Content Include="Views\Resinas\Erase.cshtml" />
     <Content Include="Views\SemanaEstoques\Common.cshtml" />
     <Content Include="Views\SemanaEstoques\Erase.cshtml" />
+    <Content Include="Views\ResinaBases\Common.cshtml" />
+    <Content Include="Views\ResinaBases\Erase.cshtml" />
+    <Content Include="Views\Sequencias\Common.cshtml" />
+    <Content Include="Views\Sequencias\Erase.cshtml" />
+    <Content Include="Views\Series\Common.cshtml" />
+    <Content Include="Views\Series\Erase.cshtml" />
+    <Content Include="Views\Setors\Common.cshtml" />
+    <Content Include="Views\Setors\Erase.cshtml" />
+    <Content Include="Views\Ajustes\Common.cshtml" />
+    <Content Include="Views\Ajustes\Erase.cshtml" />
+    <Content Include="Views\Sucatas\Common.cshtml" />
+    <Content Include="Views\Sucatas\Erase.cshtml" />
+    <Content Include="Views\Tipoes\Common.cshtml" />
+    <Content Include="Views\Tipoes\Erase.cshtml" />
+    <Content Include="Views\TdHistoricos\Common.cshtml" />
+    <Content Include="Views\TdHistoricos\Erase.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Common.cshtml" />
+    <Content Include="Views\TipoAlteracaos\Erase.cshtml" />
+    <Content Include="Views\TiposCliente\Common.cshtml" />
+    <Content Include="Views\TiposCliente\Erase.cshtml" />
+    <Content Include="Views\TipoProducaos\Common.cshtml" />
+    <Content Include="Views\TipoProducaos\Erase.cshtml" />
+    <Content Include="Views\TiposVenda\Common.cshtml" />
+    <Content Include="Views\TiposVenda\Erase.cshtml" />
+    <Content Include="Views\Ufs\Common.cshtml" />
+    <Content Include="Views\Ufs\Erase.cshtml" />
+    <Content Include="Views\Unidades\Common.cshtml" />
+    <Content Include="Views\Unidades\Erase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

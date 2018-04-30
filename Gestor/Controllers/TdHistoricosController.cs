@@ -117,6 +117,15 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TdHistorico tdHistorico = db.TdHistoricos.Find(id);
+            return View("Erase", tdHistorico);
+        }
+
+        // POST: TdHistoricos/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            TdHistorico tdHistorico = db.TdHistoricos.Find(id);
             db.TdHistoricos.Remove(tdHistorico);
             db.SaveChanges();
             return RedirectToAction("Index");

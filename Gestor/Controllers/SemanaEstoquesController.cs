@@ -116,6 +116,7 @@ namespace Gestor.Controllers
 
         // POST: SemanaEstoques/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Route("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -125,6 +126,7 @@ namespace Gestor.Controllers
 
         // POST: SemanaEstoques/Erase/5
         [HttpPost]
+        [Route("Erase")]
         [ValidateAntiForgeryToken]
         public ActionResult Erase(int id)
         {

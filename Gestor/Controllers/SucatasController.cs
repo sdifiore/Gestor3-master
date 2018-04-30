@@ -33,7 +33,11 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sucata sucata = db.Sucatas.Include(s => s.Produto).SingleOrDefault(s => s.SucataId == id);
+
+            Sucata sucata = db.Sucatas
+                .Include(s => s.Produto)
+                .SingleOrDefault(s => s.SucataId == id);
+
             if (sucata == null)
             {
                 return HttpNotFound();
@@ -121,7 +125,11 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sucata sucata = db.Sucatas.Include(s => s.Produto).SingleOrDefault(s => s.SucataId == id);
+
+            Sucata sucata = db.Sucatas
+                .Include(s => s.Produto)
+                .SingleOrDefault(s => s.SucataId == id);
+
             if (sucata == null)
             {
                 return HttpNotFound();
@@ -134,7 +142,21 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sucata sucata = db.Sucatas.Find(id);
+            Sucata sucata = db.Sucatas
+                .Include(s => s.Produto)
+                .SingleOrDefault(s => s.SucataId == id);
+
+            return View("Erase", sucata);
+        }
+
+        // POST: Sucatas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Sucata sucata = db.Sucatas
+                .Include(s => s.Produto)
+                .SingleOrDefault(s => s.SucataId == id);
             db.Sucatas.Remove(sucata);
             db.SaveChanges();
             return RedirectToAction("Index");

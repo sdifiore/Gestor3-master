@@ -1,5 +1,6 @@
 ﻿// Custo_3.PlanejVendas
 
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -117,9 +118,33 @@ namespace Gestor
         public ActionResult DeleteConfirmed(int id)
         {
             Unidade unidade = db.Unidades.Find(id);
-            db.Unidades.Remove(unidade);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Erase", unidade);
+        }
+
+        // POST: Unidades/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            try
+            {
+                Unidade unidade = db.Unidades.Find(id);
+                db.Unidades.Remove(unidade);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                DbLogger.Log(Reason.Info, $"Tentativa de eliminar Unidade id {id} existindo PlanejProducao associado");
+                return Content("Não é possível eliminar pois existe um PlanejProducao associado a essa Unidade.");
+            }
+
+            catch (Exception ex)
+            {
+                DbLogger.Log(Reason.Error, $"Erro ao tentar eliminar Unidade Id {id}: {ex}");
+                return Content("Unidade não eliminada devido a erro. Tente novamente ou notifique suporte.");
+            }
         }
 
         [HttpPost]

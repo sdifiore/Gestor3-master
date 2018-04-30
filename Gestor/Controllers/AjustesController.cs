@@ -137,7 +137,24 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ajuste ajuste = db.Ajustes.Find(id);
+            Ajuste ajuste = db.Ajustes
+                .Include(a => a.Atual)
+                .Include(a => a.TipoAlteracao)
+                .SingleOrDefault(a => a.AjusteId == id);
+
+            return View("Erase", ajuste);
+        }
+
+        // POST: Ajustes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Ajuste ajuste = db.Ajustes
+                .Include(a => a.Atual)
+                .Include(a => a.TipoAlteracao)
+                .SingleOrDefault(a => a.AjusteId == id);
+
             db.Ajustes.Remove(ajuste);
             db.SaveChanges();
             return RedirectToAction("Index");
