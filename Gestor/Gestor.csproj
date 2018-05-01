@@ -2639,6 +2639,10 @@
     <Content Include="Views\Ufs\Erase.cshtml" />
     <Content Include="Views\Unidades\Common.cshtml" />
     <Content Include="Views\Unidades\Erase.cshtml" />
+    <Content Include="Views\EncapTuboes\Common.cshtml" />
+    <Content Include="Views\EncapTuboes\Erase.cshtml" />
+    <Content Include="Views\Graxas\Common.cshtml" />
+    <Content Include="Views\Graxas\Erase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

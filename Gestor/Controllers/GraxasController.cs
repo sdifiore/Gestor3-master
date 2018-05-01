@@ -34,7 +34,12 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Graxa graxa = db.Graxas.Find(id);
+
+            Graxa graxa = db.Graxas
+                .Include(g => g.Embalagem)
+                .Include(g => g.Resina)
+                .SingleOrDefault(g => g.Id == id);
+
             if (graxa == null)
             {
                 return HttpNotFound();
@@ -111,11 +116,17 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Graxa graxa = db.Graxas.Find(id);
+
+            Graxa graxa = db.Graxas
+                .Include(g => g.Embalagem)
+                .Include(g => g.Resina)
+                .SingleOrDefault(g => g.Id == id);
+
             if (graxa == null)
             {
                 return HttpNotFound();
             }
+
             return View(graxa);
         }
 
@@ -123,6 +134,19 @@ namespace Gestor.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
+        {
+            Graxa graxa = db.Graxas
+                .Include(g => g.Embalagem)
+                .Include(g => g.Resina)
+                .SingleOrDefault(g => g.Id == id);
+
+            return View("Erase", graxa);
+        }
+
+        // POST: Graxas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
         {
             Graxa graxa = db.Graxas.Find(id);
             db.Graxas.Remove(graxa);
