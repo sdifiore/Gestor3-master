@@ -2643,6 +2643,10 @@
     <Content Include="Views\EncapTuboes\Erase.cshtml" />
     <Content Include="Views\Graxas\Common.cshtml" />
     <Content Include="Views\Graxas\Erase.cshtml" />
+    <Content Include="Views\GruposRateio\Common.cshtml" />
+    <Content Include="Views\GruposRateio\Erase.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Common.cshtml" />
+    <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Erase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

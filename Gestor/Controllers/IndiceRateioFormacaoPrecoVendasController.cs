@@ -22,8 +22,24 @@ namespace Gestor.Controllers
             var onePageHistory = indiceRateioFormacaoPrecoVendas.ToPagedList(pageNumber, Global.PageNumber);
 
             ViewBag.OnePageHistory = onePageHistory;
+            ViewBag.Grupos = GrupoVector();
 
             return View();
+        }
+
+        private string[] GrupoVector()
+        {
+            var rateio = db.Rateios;
+            int depth = rateio.Count();
+            var grupo = new string[depth];
+            int count = 0;
+
+            foreach (var item in rateio)
+            {
+                grupo[count++] = item.Grupo;
+            }
+
+            return grupo;
         }
 
         // GET: IndiceRateioFormacaoPrecoVendas/Details/5
@@ -119,15 +135,29 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Grupos = GrupoVector();
+
             return View(indiceRateioFormacaoPrecoVenda);
         }
 
-        // POST: IndiceRateioFormacaoPrecoVendas/Delete/5
+        // POST: Familias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            IndiceRateioFormacaoPrecoVenda indiceRateioFormacaoPrecoVenda = db.IndiceRateioFormacaoPrecoVendas.Find(id);
+            var indiceRateioFormacaoPrecoVenda = db.IndiceRateioFormacaoPrecoVendas.Find(id);
+            ViewBag.Grupos = GrupoVector();
+
+            return View("Erase", indiceRateioFormacaoPrecoVenda);
+        }
+
+        // POST: Familias/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            var indiceRateioFormacaoPrecoVenda = db.IndiceRateioFormacaoPrecoVendas.Find(id);
             db.IndiceRateioFormacaoPrecoVendas.Remove(indiceRateioFormacaoPrecoVenda);
             db.SaveChanges();
             return RedirectToAction("Index");

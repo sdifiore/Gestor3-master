@@ -1,5 +1,4 @@
-﻿// Custo_3.PlanejVendas
-
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -117,9 +116,33 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             GrupoRateio grupoRateio = db.GruposRateio.Find(id);
-            db.GruposRateio.Remove(grupoRateio);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Erase", grupoRateio);
+        }
+
+        // POST: GruposRateio/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            try
+            {
+                GrupoRateio grupoRateio = db.GruposRateio.Find(id);
+                db.GruposRateio.Remove(grupoRateio);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                DbLogger.Log(Reason.Info, $"Tentativa de eliminar Grupo de Rateio id {id} existindo Produto associado");
+                return Content("Não é possível eliminar pois existe Produto associado a esse Grupo de Rateio.");
+            }
+
+            catch (Exception ex)
+            {
+                DbLogger.Log(Reason.Error, $"Erro ao tentar eliminar Grupo de Rateio Id {id}: {ex}");
+                return Content("Grupo de Rateio não eliminado devido a erro. Tente novamente ou notifique suporte.");
+            }
         }
 
         public ActionResult Graxa()
