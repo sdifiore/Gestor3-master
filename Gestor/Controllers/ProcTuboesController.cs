@@ -41,7 +41,16 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProcTubo procTubo = db.ProcTubos.Find(id);
+
+            var procTubo = db.ProcTubos
+                .Include(p => p.Carga1)
+                .Include(p => p.Carga2)
+                .Include(p => p.Embalagem)
+                .Include(p => p.Produto)
+                .Include(p => p.ResinaBase)
+                .Include(p => p.Serie)
+                .SingleOrDefault(p => p.Id == id);
+
             if (procTubo == null)
             {
                 return HttpNotFound();
@@ -66,6 +75,7 @@ namespace Gestor.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("Create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ProdutoId,ResinaBaseId,DiamExterno,DiamInterno,SerieId,Carga1Id,PctCarga1,Carga2Id,PctCarga2,Sinterizado,CodResinaAdotada,RrMaxResina,BicoIdeal,MandrilIdeal,SecaoExtrudado,PerimSecaoExtrud,DiamExtFinalTubo,DiamIntFinalTubo,PesoUnKgMLiq,PtfeKgM,LubrKgM,CodPreformaIdeal,Rr,LanceSinterizado,FatorMultiplQtde,QtPf,EmbalagemId,QuantEmbalagem,ProcessoContinuo,VextrUmidoMin,FatorMultiplVExter,VsintMMin,FatorMultiplVelSint,VSintResultante,TesteEstqEsto,ConfAdtDosLub,Peneiramento,MisturaMinM,PreparoExtrusMinM,VelEfetExtrusaoMMin,TuSinterizadoMinM,TuProducaoMinM,TuInspUdc3MinM,TuTesteEstanqMinM,TuTesteEstouroMinM,TuEmbalMinM,TuTotalMinM,CustoPtfeRsM,CustoAditivosRsM,CustoLubrifRsM,CustoEmbalRsM,CustoModRsM,CustoDiretoTotalRsM,CustoIndiretoRsM,CustoTotalRsM,PvRsKg,CapProducaoMH,QtPCusto,PvCalculadoRsM")] ProcTubo procTubo)
         {
@@ -137,7 +147,16 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProcTubo procTubo = db.ProcTubos.Find(id);
+
+            var procTubo = db.ProcTubos
+                .Include(p => p.Carga1)
+                .Include(p => p.Carga2)
+                .Include(p => p.Embalagem)
+                .Include(p => p.Produto)
+                .Include(p => p.ResinaBase)
+                .Include(p => p.Serie)
+                .SingleOrDefault(p => p.Id == id);
+
             if (procTubo == null)
             {
                 return HttpNotFound();
@@ -146,13 +165,39 @@ namespace Gestor.Controllers
         }
 
         // POST: ProcTuboes/Delete/5
+        [Route("Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProcTubo procTubo = db.ProcTubos.Find(id);
+            var procTubo = db.ProcTubos
+                .Include(p => p.Carga1)
+                .Include(p => p.Carga2)
+                .Include(p => p.Embalagem)
+                .Include(p => p.Produto)
+                .Include(p => p.ResinaBase)
+                .Include(p => p.Serie)
+                .SingleOrDefault(p => p.Id == id);
+
+            return View("Erase", procTubo);
+        }
+
+        // POST: ProcTuboes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            var procTubo = db.ProcTubos
+                .Include(p => p.Carga1)
+                .Include(p => p.Carga2)
+                .Include(p => p.Embalagem)
+                .Include(p => p.Produto)
+                .Include(p => p.ResinaBase)
+                .Include(p => p.Serie)
+                .SingleOrDefault(p => p.Id == id);
             db.ProcTubos.Remove(procTubo);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

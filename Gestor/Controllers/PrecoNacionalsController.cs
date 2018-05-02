@@ -121,13 +121,25 @@ namespace Gestor.Controllers
         }
 
         // POST: PrecoNacionals/Delete/5
+        [Route("Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             PrecoNacional precoNacional = db.PrecosNacionais.Find(id);
+
+            return View("Erase", precoNacional);
+        }
+
+        // POST: PrecoNacionals/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            PrecoNacional precoNacional = db.PrecosNacionais.Find(id);
             db.PrecosNacionais.Remove(precoNacional);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

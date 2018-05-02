@@ -17,6 +17,8 @@
         <input type="submit" value="Procurar" />
     </p>
 }
+
+
 <table class="table table-hover">
     <tr>
         <th></th>
@@ -404,5 +406,4 @@
         </tr>
     }
 </table>
-
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))

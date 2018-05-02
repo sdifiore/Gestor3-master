@@ -191,15 +191,44 @@ namespace Gestor.Controllers
             return View(produto);
         }
 
-        // POST: Produtoes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Familias/Delete/5
         [Route("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produtos.Find(id);
+            var produto = db.Produtos
+                .Include(p => p.Categoria)
+                .Include(p => p.ClasseCusto)
+                .Include(p => p.Dominio)
+                .Include(p => p.Familia)
+                .Include(p => p.GrupoRateio)
+                .Include(p => p.Linha)
+                .Include(p => p.Tipo)
+                .Include(p => p.Unidade)
+                .SingleOrDefault(p => p.Id == id);
+
+            return View("Erase", produto);
+        }
+
+        // POST: Familias/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            var produto = db.Produtos
+                .Include(p => p.Categoria)
+                .Include(p => p.ClasseCusto)
+                .Include(p => p.Dominio)
+                .Include(p => p.Familia)
+                .Include(p => p.GrupoRateio)
+                .Include(p => p.Linha)
+                .Include(p => p.Tipo)
+                .Include(p => p.Unidade)
+                .SingleOrDefault(p => p.Id == id);
             db.Produtos.Remove(produto);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

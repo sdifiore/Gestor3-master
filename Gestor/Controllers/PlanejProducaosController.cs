@@ -141,13 +141,31 @@ namespace Gestor.Controllers
         }
 
         // POST: PlanejProducaos/Delete/5
+        [Route("Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            PlanejProducao planejProducao = db.PlanejProducoes
+                .Include(p => p.Produto)
+                .Include(p => p.Produto.Categoria)
+                .Include(p => p.Produto.Familia)
+                .Include(p => p.Produto.Linha)
+                .Include(p => p.Produto.Unidade)
+                .SingleOrDefault(p => p.Id == id);
+
+            return View("Erase", planejProducao);
+        }
+
+        // POST: PlanejProducaos/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
             PlanejProducao planejProducao = db.PlanejProducoes.Find(id);
             db.PlanejProducoes.Remove(planejProducao);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

@@ -180,13 +180,34 @@ namespace Gestor.Controllers
         }
 
         // POST: Insumoes/Delete/5
+        [Route("Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            var insumo = db.Insumos
+                .Include(i => i.Categoria)
+                .Include(i => i.ClasseCusto)
+                .Include(i => i.Familia)
+                .Include(i => i.Finalidade)
+                .Include(i => i.Linha)
+                .Include(i => i.Tipo)
+                .Include(i => i.UnidadeConsumo)
+                .Single(i => i.InsumoId == id);
+
+            return View("Erase", insumo);
+        }
+
+        // POST: Insumoes/Erase/5
+        [HttpPost]
+        [Route("Erase")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
             Insumo insumo = db.Insumos.Find(id);
             db.Insumos.Remove(insumo);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

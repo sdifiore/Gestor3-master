@@ -132,9 +132,22 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            PlanejVenda planejVenda = db.PlanejVendas
+                .Include(p => p.Produto)
+                .SingleOrDefault(p => p.Id == id);
+
+            return View("Erase", planejVenda);
+        }
+
+        // POST: PlanejVendas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
             PlanejVenda planejVenda = db.PlanejVendas.Find(id);
             db.PlanejVendas.Remove(planejVenda);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

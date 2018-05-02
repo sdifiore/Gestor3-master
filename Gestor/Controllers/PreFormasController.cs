@@ -134,9 +134,26 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PreForma preForma = db.PreFormas.Find(id);
+            var preForma = db.PreFormas
+                .Include(p => p.Extrusora)
+                .Include(p => p.PrensaPreForma)
+                .SingleOrDefault(p => p.Id == id);
+
+            return View("Erase", preForma);
+        }
+
+        // POST: PreFormas/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            var preForma = db.PreFormas
+                .Include(p => p.Extrusora)
+                .Include(p => p.PrensaPreForma)
+                .SingleOrDefault(p => p.Id == id);
             db.PreFormas.Remove(preForma);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

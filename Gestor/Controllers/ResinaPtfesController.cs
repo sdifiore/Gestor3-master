@@ -144,9 +144,24 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            var resinaPtfe = db.ResinasPtfe
+                .Include(r => r.Fabricante)
+                .Include(r => r.Insumo)
+                .Include(r => r.ResinaBase)
+                .SingleOrDefault(r => r.Id == id);
+
+            return View("Erase", resinaPtfe);
+        }
+
+        // POST: ResinaPtfes/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
             ResinaPtfe resinaPtfe = db.ResinasPtfe.Find(id);
             db.ResinasPtfe.Remove(resinaPtfe);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

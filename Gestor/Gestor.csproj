@@ -328,8 +328,6 @@
     <Compile Include="Controllers\DfxProdRevsController.cs" />
     <Compile Include="Controllers\EmbalsController.cs" />
     <Compile Include="Controllers\EncapTuboesController.cs" />
-    <Compile Include="Controllers\Estruturas1Controller.cs" />
-    <Compile Include="Controllers\EstruturasController.new.cs" />
     <Compile Include="Controllers\EstruturasController.cs" />
     <Compile Include="Controllers\ExtrusorasController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
@@ -2466,11 +2464,6 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Estruturas\Edit.cshtml" />
-    <Content Include="Views\Estruturas.new\Create.cshtml" />
-    <Content Include="Views\Estruturas.new\Delete.cshtml" />
-    <Content Include="Views\Estruturas.new\Details.cshtml" />
-    <Content Include="Views\Estruturas.new\Edit.cshtml" />
-    <Content Include="Views\Estruturas.new\Index.cshtml" />
     <Content Include="Views\Marcas\Create.cshtml" />
     <Content Include="Views\Marcas\Delete.cshtml" />
     <Content Include="Views\Marcas\Details.cshtml" />
@@ -2647,6 +2640,32 @@
     <Content Include="Views\GruposRateio\Erase.cshtml" />
     <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Common.cshtml" />
     <Content Include="Views\IndiceRateioFormacaoPrecoVendas\Erase.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Common.cshtml" />
+    <Content Include="Views\IndiceRateioLucratividades\Erase.cshtml" />
+    <Content Include="Views\Insumoes\Common.cshtml" />
+    <Content Include="Views\Insumoes\Erase.cshtml" />
+    <Content Include="Views\PlanejCompras\Common.cshtml" />
+    <Content Include="Views\PlanejCompras\Erase.cshtml" />
+    <Content Include="Views\PlanejMods\Common.cshtml" />
+    <Content Include="Views\PlanejMods\Erase.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Common.cshtml" />
+    <Content Include="Views\PlanejNecessidades\Erase.cshtml" />
+    <Content Include="Views\PlanejProducaos\Common.cshtml" />
+    <Content Include="Views\PlanejProducaos\Erase.cshtml" />
+    <Content Include="Views\PlanejVendas\Common.cshtml" />
+    <Content Include="Views\PlanejVendas\Erase.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Common.cshtml" />
+    <Content Include="Views\PrecoExportacaos\Erase.cshtml" />
+    <Content Include="Views\PrecoNacionals\Common.cshtml" />
+    <Content Include="Views\PrecoNacionals\Erase.cshtml" />
+    <Content Include="Views\PreFormas\Common.cshtml" />
+    <Content Include="Views\PreFormas\Erase.cshtml" />
+    <Content Include="Views\ProcTuboes\Common.cshtml" />
+    <Content Include="Views\ProcTuboes\Erase.cshtml" />
+    <Content Include="Views\Produtoes\Common.cshtml" />
+    <Content Include="Views\Produtoes\Erase.cshtml" />
+    <Content Include="Views\ResinaPtfes\Common.cshtml" />
+    <Content Include="Views\ResinaPtfes\Erase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

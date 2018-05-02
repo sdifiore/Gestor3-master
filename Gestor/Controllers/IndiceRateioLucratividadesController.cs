@@ -22,8 +22,24 @@ namespace Gestor.Controllers
             var onePageHistory = indiceRateioLucratividades.ToPagedList(pageNumber, Global.PageNumber);
 
             ViewBag.OnePageHistory = onePageHistory;
+            ViewBag.Grupos = GrupoVector();
 
             return View();
+        }
+
+        private string[] GrupoVector()
+        {
+            var rateio = db.Rateios;
+            int depth = rateio.Count();
+            var grupo = new string[depth];
+            int count = 0;
+
+            foreach (var item in rateio)
+            {
+                grupo[count++] = item.Grupo;
+            }
+
+            return grupo;
         }
 
         // GET: IndiceRateioLucratividades/Details/5
@@ -34,7 +50,7 @@ namespace Gestor.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            IndiceRateioLucratividade indiceRateioLucratividade = db.IndiceRateioLucratividades
+            var indiceRateioLucratividade = db.IndiceRateioLucratividades
                 .Include(i => i.GrupoRateio)
                 .SingleOrDefault(i => i.Id == id);
 
@@ -111,7 +127,7 @@ namespace Gestor.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            IndiceRateioLucratividade indiceRateioLucratividade = db.IndiceRateioLucratividades
+            var indiceRateioLucratividade = db.IndiceRateioLucratividades
                 .Include(i => i.GrupoRateio)
                 .SingleOrDefault(i => i.Id == id);
 
@@ -122,14 +138,30 @@ namespace Gestor.Controllers
             return View(indiceRateioLucratividade);
         }
 
-        // POST: IndiceRateioLucratividades/Delete/5
+        // POST: Familias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            IndiceRateioLucratividade indiceRateioLucratividade = db.IndiceRateioLucratividades.Find(id);
+            var indiceRateioLucratividade = db.IndiceRateioLucratividades
+                .Include(i => i.GrupoRateio)
+                .SingleOrDefault(i => i.Id == id);
+            ViewBag.Grupos = GrupoVector();
+
+            return View("Erase", indiceRateioLucratividade);
+        }
+
+        // POST: Familias/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            var indiceRateioLucratividade = db.IndiceRateioLucratividades
+                .Include(i => i.GrupoRateio)
+                .SingleOrDefault(i => i.Id == id);
             db.IndiceRateioLucratividades.Remove(indiceRateioLucratividade);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

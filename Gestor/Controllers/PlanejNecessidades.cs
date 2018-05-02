@@ -113,7 +113,9 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Estrutura estrutura = db.Estruturas.Find(id);
+
             if (estrutura == null)
             {
                 return HttpNotFound();
@@ -121,14 +123,26 @@ namespace Gestor.Controllers
             return View(estrutura);
         }
 
+
         // POST: PlanejNecessidades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Estrutura estrutura = db.Estruturas.Find(id);
+
+            return View("Erase", estrutura);
+        }
+
+        // POST: PlanejNecessidades/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            Estrutura estrutura = db.Estruturas.Find(id);
             db.Estruturas.Remove(estrutura);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

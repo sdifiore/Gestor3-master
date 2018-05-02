@@ -121,13 +121,25 @@ namespace Gestor.Controllers
         }
 
         // POST: PrecoExportacaos/Delete/5
+        [Route("Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             PrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
+
+            return View("Erase", precoExportacao);
+        }
+
+        // POST: PrecoExportacaos/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
+            PrecoExportacao precoExportacao = db.PrecosExpostacao.Find(id);
             db.PrecosExpostacao.Remove(precoExportacao);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

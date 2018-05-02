@@ -142,9 +142,24 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            PlanejMod planejMod = db.PlanejMods
+                .Include(p => p.Operacao)
+                .Include(p => p.Setor)
+                .Include(p => p.Unidade)
+                .SingleOrDefault(P => P.Id == id);
+
+            return View("Erase", planejMod);
+        }
+
+        // POST: PlanejMods/Erase/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Erase(int id)
+        {
             PlanejMod planejMod = db.PlanejMods.Find(id);
             db.PlanejMods.Remove(planejMod);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

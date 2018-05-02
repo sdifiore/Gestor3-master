@@ -1,4 +1,4 @@
-﻿@model Gestor.Models.IndiceRateioFormacaoPrecoVenda
+﻿@model Gestor.Models.ResinaPtfe
 
 @{
     ViewBag.Title = "Confirmar Eliminar";
@@ -7,7 +7,7 @@
 <h2>Confirmar Eliminar</h2>
 <h3>CONFIRMA que realmente deseja eliminar o registro?</h3>
 @Html.Partial("Common")
-@using (Html.BeginForm("Erase", "IndiceRateioFormacaoPrecoVendas", new { Id = Model.Id }))
+@using (Html.BeginForm("Erase", "ResinaPtfes", new { Id = Model.Id }))
 {
     @Html.AntiForgeryToken()
 

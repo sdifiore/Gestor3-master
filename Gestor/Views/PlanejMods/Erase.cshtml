@@ -1,13 +1,13 @@
-﻿@model Gestor.Models.IndiceRateioFormacaoPrecoVenda
+﻿@model Gestor.Models.PlanejMod
 
 @{
     ViewBag.Title = "Confirmar Eliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Confirmar Eliminar</h2>
-<h3>CONFIRMA que realmente deseja eliminar o registro?</h3>
+<h3>CONFIRME que realmente deseja eliminar o registro?</h3>
 @Html.Partial("Common")
-@using (Html.BeginForm("Erase", "IndiceRateioFormacaoPrecoVendas", new { Id = Model.Id }))
+@using (Html.BeginForm("Erase", "PlanejMods", new { Id = Model.Id }))
 {
     @Html.AntiForgeryToken()
 

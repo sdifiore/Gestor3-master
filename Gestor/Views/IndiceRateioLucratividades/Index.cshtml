@@ -5,16 +5,7 @@
     ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
     IPagedList<Gestor.Models.IndiceRateioLucratividade> indices = ViewBag.OnePageHistory;
-
-    var grupo = new string[12];
-
-    using (var db = new Gestor.Models.ApplicationDbContext())
-    {
-        for (int i = 1; i < 12; i++)
-        {
-            grupo[i] = db.Rateios.Single(r => r.RateioId == i).Grupo;
-        }
-    }
+    string[] grupo = (string[])ViewBag.Grupos;
 }
 <h2>Índice</h2>
 <p>

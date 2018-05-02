@@ -1,0 +1,384 @@
+﻿@model Gestor.Models.Produto
+
+<dl class="dl-horizontal">
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Apelido)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Descricao)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Unidade.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Unidade.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Tipo.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Tipo.Apelido)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.ClasseCusto.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.ClasseCusto.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Categoria.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Categoria.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Familia.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Familia.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Linha.Apelido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Linha.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.GrupoRateio.Descricao)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.GrupoRateio.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PesoLiquido)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PesoLiquido)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Ativo)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Ativo)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Ipi)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Ipi)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.QtdUnid)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.QtdUnid)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Dominio.Descricao)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Dominio.Descricao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TipoProdId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TipoProdId)
+    </dd>
+    @*<dt>
+            Medida
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MedidaFita.Apelido)
+        </dd>*@
+    @*<dt>
+            @Html.DisplayNameFor(model => model.Pcp.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pcp.Descricao)
+        </dd>*@
+    <dt>
+        @Html.DisplayNameFor(model => model.RefAuxiliarProduto)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RefAuxiliarProduto)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.QtUnPorUnArmz)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.QtUnPorUnArmz)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PesoLiquidoCalc)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PesoLiquidoCalc)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.ItemStru)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.ItemStru)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CustODirTotal)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CustODirTotal)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CstMatUltmEtapa)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CstMatUltmEtapa)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CstMatEtapa1)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CstMatEtapa1)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CstMatEtapa2)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CstMatEtapa2)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CstMatEtapa3)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CstMatEtapa3)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CstTotMaterial)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CstTotMaterial)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CustoDirMod)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CustoDirMod)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.HorasModUltmEtapa)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.HorasModUltmEtapa)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.HorasModEtapa1)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.HorasModEtapa1)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.HorasModEtapa2)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.HorasModEtapa2)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.HorasModTotal)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.HorasModTotal)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CapProdHora)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CapProdHora)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.LoteMinimo)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.LoteMinimo)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.UsoStru)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.UsoStru)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CustoDir)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CustoDir)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.RelModCstDir)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.RelModCstDir)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PctMatEtapaFinal)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PctMatEtapaFinal)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PctMatEtapa1)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PctMatEtapa1)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PctMatEtapa2)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PctMatEtapa2)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PctMatEtapa3)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PctMatEtapa3)
+    </dd>
+    @*<dt>
+            @Html.DisplayNameFor(model => model.Input)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Input)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoTotal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MoiFabricacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MoiFabricacao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OutrosCustosFab)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OutrosCustosFab)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ComacsComtexFpv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ComacsComtexFpv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminLogFpv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoAdminLogFpv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RsMoiDespFabHMod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RsMoiDespFabHMod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RsSgNAHMod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RsSgNAHMod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoTotalAnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoTotalAnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MoiFabricAnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MoiFabricAnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OutrosCustosFabricAnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OutrosCustosFabricAnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoComacsCmtexAnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoComacsCmtexAnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustoFixoAdminAnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustoFixoAdminAnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PctPtfePeso)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PctPtfePeso)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PropCustoFixoTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PropCustoFixoTotal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CstDirUnidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CstDirUnidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CstIndirUnidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CstIndirUnidade)
+        </dd>*@
+    <dt>
+        @Html.DisplayNameFor(model => model.DescricaoUnidade)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.DescricaoUnidade)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Acoes)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Acoes)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.EventosAgVendasHistorico)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.EventosAgVendasHistorico)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Acao)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Acao)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Codigo)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Codigo)
+    </dd>
+
+</dl>
