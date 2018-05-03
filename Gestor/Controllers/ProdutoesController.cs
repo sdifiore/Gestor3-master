@@ -61,6 +61,10 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
+            produto.Ipi = produto.Ipi * 100;
+            produto.PctPtfePeso = produto.PctPtfePeso * 100;
+
             return View(produto);
         }
 
@@ -93,8 +97,10 @@ namespace Gestor.Controllers
             if (ModelState.IsValid)
             {
                 produto.Ipi = produto.Ipi / 100;
+                produto.PctPtfePeso = produto.PctPtfePeso / 100;
                 db.Produtos.Add(produto);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -119,6 +125,69 @@ namespace Gestor.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.Produtos.Find(id);
+
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+
+            produto.Ipi = produto.Ipi * 100;
+            produto.PctPtfePeso = produto.PctPtfePeso * 100;
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
+            ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
+            ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
+            ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
+
+            return View(produto);
+        }
+
+        // POST: Produtoes/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [Route("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3,Input,CustoFixoTotal,MoiFabricacao,OutrosCustosFab,ComacsComtexFpv,CustoFixoAdminFpv,RsMoiDespFabHMod,RsSgNAHMod,CustoFixoTotalAnr,MoiFabricAnr,OutrosCustosFabricAnr,CustoFixoComacsCmtexAnr,CustoFixoAdminAnr,MedidaFitaId,DescricaoUnidade,Acoes,EventosAGVendasHistorico,Acao,Codigo")] Produto produto)
+        {
+            if (ModelState.IsValid)
+            {
+                produto.Ipi = produto.Ipi / 100;
+                produto.PctPtfePeso = produto.PctPtfePeso / 100;
+                db.Entry(produto).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            produto.Ipi = produto.Ipi * 100;
+            produto.PctPtfePeso = produto.PctPtfePeso * 100;
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
+            ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", produto.FamiliaId);
+            ViewBag.GrupoRateioId = new SelectList(db.GruposRateio, "GrupoRateioId", "Descricao", produto.GrupoRateioId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", produto.LinhaId);
+            ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
+
+            return View(produto);
+        }
+
+        // GET: Produtoes/Copy/5
+        [Route("Copy")]
+        public ActionResult Copy(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = db.Produtos.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -134,24 +203,32 @@ namespace Gestor.Controllers
             ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
+
             return View(produto);
         }
 
-        // POST: Produtoes/Edit/5
+        // POST: Produtoes/Copy/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("Copy")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3,Input,CustoFixoTotal,MoiFabricacao,OutrosCustosFab,ComacsComtexFpv,CustoFixoAdminFpv,RsMoiDespFabHMod,RsSgNAHMod,CustoFixoTotalAnr,MoiFabricAnr,OutrosCustosFabricAnr,CustoFixoComacsCmtexAnr,CustoFixoAdminAnr,MedidaFitaId,DescricaoUnidade,Acoes,EventosAGVendasHistorico,Acao,Codigo")] Produto produto)
+        public ActionResult Copy([Bind(Include = "Id,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,GrupoRateioId,PesoLiquido,Ativo,Ipi,QtdUnid,DominioId,TipoProdId,PcpId,QtUnPorUnArmz,PesoLiquidoCalc,ItemStru,CustODirTotal,CstMatUltmEtapa,CstMatEtapa1,CstMatEtapa2,CstMatEtapa3,CstTotMaterial,CustoDirMod,HorasModUltmEtapa,HorasModEtapa1,HorasModEtapa2,HorasModTotal,CapProdHora,LoteMinimo,UsoStru,CustoDir,RelModCstDir,PctMatEtapaFinal,PctMatEtapa1,PctMatEtapa2,PctMatEtapa3,Input,CustoFixoTotal,MoiFabricacao,OutrosCustosFab,ComacsComtexFpv,CustoFixoAdminFpv,RsMoiDespFabHMod,RsSgNAHMod,CustoFixoTotalAnr,MoiFabricAnr,OutrosCustosFabricAnr,CustoFixoComacsCmtexAnr,CustoFixoAdminAnr,MedidaFitaId,DescricaoUnidade,Acoes,EventosAGVendasHistorico,Acao,Codigo")] Produto produto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
+                var duplicado = db.Produtos.SingleOrDefault(p => p.Apelido == produto.Apelido);
+
+                if (duplicado != null)
+                    return Content($"Produto {produto.Apelido} já existe no cadastro e portanto não pode ser duplicado.");
+
+                produto.Ipi = produto.Ipi / 100;
+                db.Produtos.Add(produto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            produto.PctPtfePeso = produto.PctPtfePeso / 100;
+            produto.PctPtfePeso = produto.PctPtfePeso * 100;
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);

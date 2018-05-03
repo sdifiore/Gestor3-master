@@ -1,0 +1,30 @@
+﻿@model Gestor.Models.Produto
+@{
+    ViewBag.Title = "Copiar e Criar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Copiar de @Model.Apelido para um novo produto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Cópia e criação de Produto</h4>
+        <hr />
+
+        @Html.Partial("CopyErase")
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Criar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Retornar a lista", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
