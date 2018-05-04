@@ -93,6 +93,11 @@ namespace Gestor.Controllers
                 return RedirectToAction("Index");
             }
 
+            insumo.Icms = insumo.Icms / 100;
+            insumo.Ipi = insumo.Ipi / 100;
+            insumo.Pis = insumo.Pis / 100;
+            insumo.Cofins = insumo.Cofins / 100;
+            insumo.PctPgto1 = insumo.PctPgto1 / 100;
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
@@ -112,18 +117,28 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Insumo insumo = db.Insumos.Find(id);
+
             if (insumo == null)
             {
                 return HttpNotFound();
             }
+
+            insumo.Icms = insumo.Icms * 100;
+            insumo.Ipi = insumo.Ipi * 100;
+            insumo.Pis = insumo.Pis * 100;
+            insumo.Cofins = insumo.Cofins * 100;
+            insumo.PctPgto1 = insumo.PctPgto1 * 100;
+
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
-            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
+            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeId);
+            ViewBag.UndConsId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
 
             return View(insumo);
         }
@@ -132,22 +147,32 @@ namespace Gestor.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InsumoId,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnddId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDesp,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru")] Insumo insumo)
+        public ActionResult Edit([Bind(Include = "InsumoId,Apelido,Descricao,UnidadeId,UnidadeConsumoId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDesp,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru")] Insumo insumo)
         {
             if (ModelState.IsValid)
             {
+                insumo.Icms = insumo.Icms / 100;
+                insumo.Ipi = insumo.Ipi / 100;
+                insumo.Pis = insumo.Pis / 100;
+                insumo.Cofins = insumo.Cofins / 100;
+                insumo.PctPgto1 = insumo.PctPgto1 / 100;
+
                 db.Entry(insumo).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
+
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
-            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
+            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeId);
+            ViewBag.UndConsId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
 
             return View(insumo);
         }

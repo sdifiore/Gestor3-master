@@ -62,9 +62,6 @@ namespace Gestor.Controllers
                 return HttpNotFound();
             }
 
-            produto.Ipi = produto.Ipi * 100;
-            produto.PctPtfePeso = produto.PctPtfePeso * 100;
-
             return View(produto);
         }
 
@@ -113,6 +110,7 @@ namespace Gestor.Controllers
             ViewBag.MedidaFitaId = new SelectList(db.MedidaFitas, "MedidaFitaId", "Apelido", produto.MedidaFitaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", produto.TipoId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Apelido", produto.UnidadeId);
+
             return View(produto);
         }
 
@@ -133,6 +131,7 @@ namespace Gestor.Controllers
 
             produto.Ipi = produto.Ipi * 100;
             produto.PctPtfePeso = produto.PctPtfePeso * 100;
+
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
@@ -158,14 +157,13 @@ namespace Gestor.Controllers
             {
                 produto.Ipi = produto.Ipi / 100;
                 produto.PctPtfePeso = produto.PctPtfePeso / 100;
+
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            produto.Ipi = produto.Ipi * 100;
-            produto.PctPtfePeso = produto.PctPtfePeso * 100;
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
@@ -193,6 +191,7 @@ namespace Gestor.Controllers
                 return HttpNotFound();
             }
 
+            produto.Ipi = produto.Ipi * 100;
             produto.PctPtfePeso = produto.PctPtfePeso * 100;
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
@@ -223,8 +222,10 @@ namespace Gestor.Controllers
                     return Content($"Produto {produto.Apelido} já existe no cadastro e portanto não pode ser duplicado.");
 
                 produto.Ipi = produto.Ipi / 100;
+                produto.PctPtfePeso = produto.PctPtfePeso / 100;
                 db.Produtos.Add(produto);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

@@ -371,6 +371,7 @@
     <Compile Include="Controllers\UfsController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\VisaoController.cs" />
+    <Compile Include="Controllers\_InsumoXController.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="FxDfxProdRev.cs" />
     <Compile Include="FxEstrutura.cs" />
@@ -2668,6 +2669,12 @@
     <Content Include="Views\ResinaPtfes\Erase.cshtml" />
     <Content Include="Views\Produtoes\CopyErase.cshtml" />
     <Content Include="Views\Produtoes\Copy.cshtml" />
+    <Content Include="Views\Insumoes\CopyEdit.cshtml" />
+    <Content Include="Views\_InsumoX\Create.cshtml" />
+    <Content Include="Views\_InsumoX\Delete.cshtml" />
+    <Content Include="Views\_InsumoX\Details.cshtml" />
+    <Content Include="Views\_InsumoX\Edit.cshtml" />
+    <Content Include="Views\_InsumoX\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
