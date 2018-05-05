@@ -14,6 +14,7 @@
     <div class="form-horizontal">
         <h4>Insumo</h4>
         <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Apelido, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -32,10 +33,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UnidadeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.QtdUnddConsumo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UnidadeId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnidadeId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.QtdUnddConsumo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QtdUnddConsumo, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -178,10 +179,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UnddId, "Unidade", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UnidadeId, "Unidade", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("UnddId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.UnddId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.UnidadeId, (SelectList)ViewBag.UnidadeId, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UnidadeId, "", new { @class = "text-danger" })
             </div>
         </div>
 

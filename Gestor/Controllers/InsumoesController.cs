@@ -69,13 +69,13 @@ namespace Gestor.Controllers
         [Route("Criar")]
         public ActionResult Create()
         {
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido");
-            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido");
-            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido");
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao");
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Descricao");
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao");
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao");
-            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido");
-            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido");
-            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido");
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descricao");
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
             return View();
         }
 
@@ -131,14 +131,14 @@ namespace Gestor.Controllers
             insumo.Cofins = insumo.Cofins * 100;
             insumo.PctPgto1 = insumo.PctPgto1 * 100;
 
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
-            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
-            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao", insumo.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Descricao", insumo.ClasseCustoId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao", insumo.FamiliaId);
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
-            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
-            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
-            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeId);
-            ViewBag.UndConsId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao", insumo.LinhaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descricao", insumo.TipoId);
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao", insumo.UnidadeId);
+            ViewBag.UnidadeConsumoId = new SelectList(db.Unidades, "UnidadeId", "Descricao", insumo.UnidadeConsumoId);
 
             return View(insumo);
         }
