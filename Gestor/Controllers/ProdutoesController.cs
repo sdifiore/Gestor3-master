@@ -193,6 +193,8 @@ namespace Gestor.Controllers
 
             produto.Ipi = produto.Ipi * 100;
             produto.PctPtfePeso = produto.PctPtfePeso * 100;
+            produto.Apelido = "";
+
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", produto.CategoriaId);
             ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", produto.ClasseCustoId);
             ViewBag.DominioId = new SelectList(db.Dominios, "DominioId", "Descricao", produto.DominioId);
@@ -219,7 +221,10 @@ namespace Gestor.Controllers
                 var duplicado = db.Produtos.SingleOrDefault(p => p.Apelido == produto.Apelido);
 
                 if (duplicado != null)
+                {
+                    DbLogger.Log(Reason.Info, $"Tentativa de duplicar Produto {produto.Apelido} sem sucesso.");
                     return Content($"Produto {produto.Apelido} já existe no cadastro e portanto não pode ser duplicado.");
+                }
 
                 produto.Ipi = produto.Ipi / 100;
                 produto.PctPtfePeso = produto.PctPtfePeso / 100;

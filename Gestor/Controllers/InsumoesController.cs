@@ -76,6 +76,8 @@ namespace Gestor.Controllers
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descricao");
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
+            ViewBag.UnidadeConsumoId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
+
             return View();
         }
 
@@ -83,13 +85,21 @@ namespace Gestor.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("Criar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InsumoId,Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnddId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDesp,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru")] Insumo insumo)
+        public ActionResult Create([Bind(Include = "Apelido,Descricao,UnidadeId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,UnidadeConsumoId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDes")] Insumo insumo)
         {
             if (ModelState.IsValid)
             {
+                insumo.Icms = insumo.Icms / 100;
+                insumo.Ipi = insumo.Ipi / 100;
+                insumo.Pis = insumo.Pis / 100;
+                insumo.Cofins = insumo.Cofins / 100;
+                insumo.PctPgto1 = insumo.PctPgto1 / 100;
+
                 db.Insumos.Add(insumo);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -104,7 +114,8 @@ namespace Gestor.Controllers
             ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
             ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
-            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
+            ViewBag.UnidadeConsumoId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
 
             return View(insumo);
         }
@@ -160,6 +171,81 @@ namespace Gestor.Controllers
                 insumo.PctPgto1 = insumo.PctPgto1 / 100;
 
                 db.Entry(insumo).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", insumo.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Apelido", insumo.ClasseCustoId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", insumo.FamiliaId);
+            ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", insumo.LinhaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Apelido", insumo.TipoId);
+            ViewBag.UnddId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeId);
+            ViewBag.UndConsId = new SelectList(db.Unidades, "UnidadeId", "Apelido", insumo.UnidadeConsumoId);
+
+            return View(insumo);
+        }
+
+        // GET: Insumoes/Copy/5
+        [Route("Copy")]
+        public ActionResult Copy(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Insumo insumo = db.Insumos.Find(id);
+
+            if (insumo == null)
+            {
+                return HttpNotFound();
+            }
+
+            insumo.Apelido = "";
+            insumo.Icms = insumo.Icms * 100;
+            insumo.Ipi = insumo.Ipi * 100;
+            insumo.Pis = insumo.Pis * 100;
+            insumo.Cofins = insumo.Cofins * 100;
+            insumo.PctPgto1 = insumo.PctPgto1 * 100;
+
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao", insumo.CategoriaId);
+            ViewBag.ClasseCustoId = new SelectList(db.ClassesCusto, "ClasseCustoId", "Descricao", insumo.ClasseCustoId);
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao", insumo.FamiliaId);
+            ViewBag.FinalidadeId = new SelectList(db.Finalidades, "FinalidadeId", "Descricao", insumo.FinalidadeId);
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao", insumo.LinhaId);
+            ViewBag.TipoId = new SelectList(db.Tipos, "TipoId", "Descricao", insumo.TipoId);
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao", insumo.UnidadeId);
+            ViewBag.UnidadeConsumoId = new SelectList(db.Unidades, "UnidadeId", "Descricao", insumo.UnidadeConsumoId);
+
+            return View(insumo);
+        }
+
+        // POST: Insumoes/Copy/5
+        [HttpPost]
+        [Route("Copy")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Copy([Bind(Include = "InsumoId,Apelido,Descricao,UnidadeId,UnidadeConsumoId,TipoId,ClasseCustoId,CategoriaId,FamiliaId,LinhaId,Peso,Cotacao,PrecoUsd,PrecoRs,Icms,Ipi,Pis,Cofins,DespExtra,DespImport,Ativo,FinalidadeId,QtdUnddConsumo,QtdMltplCompra,FormaPgto,Prazo1,Prazo2,PctPgto1,ImportPzPagDesp,PrcBrtCompra,CrdtIcms,CrdtIpi,CrdtPis,CrdtCofins,SumCrdImpostos,DspImportacao,CustoExtra,Custo,CustoUndCnsm,PgtFornecImp,UsoStru")] Insumo insumo)
+        {
+            if (ModelState.IsValid)
+            {
+                var duplicado = db.Insumos.SingleOrDefault(p => p.Apelido == insumo.Apelido);
+                if (duplicado != null)
+                {
+                    DbLogger.Log(Reason.Info, $"Tentativa de duplicar Insumo {insumo.Apelido} sem sucesso.");
+                    return Content($"Insumo {insumo.Apelido} já existe no cadastro e portanto não pode ser duplicado.");
+                }
+                    
+
+                insumo.Icms = insumo.Icms / 100;
+                insumo.Ipi = insumo.Ipi / 100;
+                insumo.Pis = insumo.Pis / 100;
+                insumo.Cofins = insumo.Cofins / 100;
+                insumo.PctPgto1 = insumo.PctPgto1 / 100;
+
+                db.Insumos.Add(insumo);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");

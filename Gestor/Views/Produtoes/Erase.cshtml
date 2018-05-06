@@ -6,7 +6,9 @@
 }
 <h2>Confirmar Eliminar</h2>
 <h3>CONFIRMA que realmente deseja eliminar o registro?</h3>
+
 @Html.Partial("Common")
+
 @using (Html.BeginForm("Erase", "Produtoes", new { Id = Model.Id }))
 {
     @Html.AntiForgeryToken()

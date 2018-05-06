@@ -2668,7 +2668,8 @@
     <Content Include="Views\ResinaPtfes\Erase.cshtml" />
     <Content Include="Views\Produtoes\CopyErase.cshtml" />
     <Content Include="Views\Produtoes\Copy.cshtml" />
-    <Content Include="Views\Insumoes\CopyEdit.cshtml" />
+    <Content Include="Views\Insumoes\CreateCopyEdit.cshtml" />
+    <Content Include="Views\Insumoes\Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
