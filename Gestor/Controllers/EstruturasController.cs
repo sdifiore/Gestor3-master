@@ -148,9 +148,10 @@ namespace Gestor.Controllers
 
         public ActionResult CopyStru(string id)
         {
-            int produtoId = int.Parse(id);
-            var estrutura = db.Estruturas.First(e => e.Id == produtoId);
+            int estruturaId = int.Parse(id);
+            var estrutura = db.Estruturas.First(e => e.Id == estruturaId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
+            Session["StruOrigem"] = estrutura.ProdutoId;
 
             return View(estrutura);
         }
@@ -168,24 +169,26 @@ namespace Gestor.Controllers
         public ViewResult AlterStru()
         {
             int produtoId = (int)Session["cStruProdId"];
+            int struOriId = (int)Session["StruOrigem"];
             ViewBag.Title = Session["ViewBagTitle"];
-            var estruturas = Clone(produtoId);
+            var estruturas = Clone(produtoId, struOriId);
 
             return View(estruturas);
         }
 
-        private IQueryable<Estrutura> Clone(int produtoId)
+        private IQueryable<Estrutura> Clone(int produtoId, int struOriId)
         {
-            var estruturas = db.Estruturas.Where(e => e.ProdutoId == produtoId);
-            db.Entry(estruturas).State = EntityState.Detached;
+            var estruturas = db.Estruturas.Where(e => e.ProdutoId == struOriId);
+            
 
             foreach (var estrutura in estruturas)
             {
+                db.Entry(estrutura).State = EntityState.Detached;
                 estrutura.Id = 0;
                 estrutura.ProdutoId = produtoId;
+                db.Entry(estrutura).State = EntityState.Added;
             }
-
-            db.Entry(estruturas).State = EntityState.Added;
+            
             db.SaveChanges();
 
             return estruturas;
@@ -197,7 +200,7 @@ namespace Gestor.Controllers
             db.Estruturas.Remove(toBeDeleted);
             db.SaveChanges();
 
-            return RedirectToAction(AlteraEstrutura);
+            return RedirectToAction("AlterStru");
         }
 
         // GET: Estruturas/Delete/5
@@ -280,13 +283,6 @@ namespace Gestor.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public override bool Equals(object obj)
-        {
-            var controller = obj as EstruturasController;
-            return controller != null &&
-                   EqualityComparer<ApplicationDbContext>.Default.Equals(db, controller.db);
         }
     }
 }
