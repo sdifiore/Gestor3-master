@@ -1,8 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Gestor.Models;
+using Gestor.ViewModels;
 using X.PagedList;
 
 namespace Gestor.Controllers
@@ -63,9 +65,10 @@ namespace Gestor.Controllers
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao");
             ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao");
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Descricao");
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo");
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
+
             return View();
         }
 
@@ -111,6 +114,7 @@ namespace Gestor.Controllers
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", estrutura.LinhaId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", estrutura.ProdutoId);
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao", estrutura.SequenciaId);
             ViewBag.UnidadeCompraId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeCompraId);
 
             return View(estrutura);
@@ -140,6 +144,60 @@ namespace Gestor.Controllers
             ViewBag.UnidadeCompraId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeCompraId);
 
             return View(estrutura);
+        }
+
+        public ActionResult CopyStru(string id)
+        {
+            int produtoId = int.Parse(id);
+            var estrutura = db.Estruturas.First(e => e.Id == produtoId);
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
+
+            return View(estrutura);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CopyStru(int ProdutoId)
+        {
+            Session["cStruProdId"] = ProdutoId;
+            Session["ViewBagTitle"] = "Copiar estrutura";
+
+            return RedirectToAction("AlterStru");
+        }
+
+        public ViewResult AlterStru()
+        {
+            int produtoId = (int)Session["cStruProdId"];
+            ViewBag.Title = Session["ViewBagTitle"];
+            var estruturas = Clone(produtoId);
+
+            return View(estruturas);
+        }
+
+        private IQueryable<Estrutura> Clone(int produtoId)
+        {
+            var estruturas = db.Estruturas.Where(e => e.ProdutoId == produtoId);
+            db.Entry(estruturas).State = EntityState.Detached;
+
+            foreach (var estrutura in estruturas)
+            {
+                estrutura.Id = 0;
+                estrutura.ProdutoId = produtoId;
+            }
+
+            db.Entry(estruturas).State = EntityState.Added;
+            db.SaveChanges();
+
+            return estruturas;
+        }
+
+        public ActionResult DeleteItem(int id)
+        {
+            var toBeDeleted = db.Estruturas.Find(id);
+            db.Estruturas.Remove(toBeDeleted);
+            db.SaveChanges();
+
+            return RedirectToAction(AlteraEstrutura);
         }
 
         // GET: Estruturas/Delete/5
@@ -222,6 +280,13 @@ namespace Gestor.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public override bool Equals(object obj)
+        {
+            var controller = obj as EstruturasController;
+            return controller != null &&
+                   EqualityComparer<ApplicationDbContext>.Default.Equals(db, controller.db);
         }
     }
 }

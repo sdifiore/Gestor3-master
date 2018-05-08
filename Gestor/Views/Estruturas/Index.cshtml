@@ -12,25 +12,26 @@
 @{
     string[] unity = new string[]
     {
-"null",
-"caixa",
-"peça",
-"kilograma",
-"metro",
-"rolo",
-"milheiro",
-"null",
-"não informado",
-"hora",
-"unidade",
-"litro"
+        "null",
+        "caixa",
+        "peça",
+        "kilograma",
+        "metro",
+        "rolo",
+        "milheiro",
+        "null",
+        "não informado",
+        "hora",
+        "unidade",
+        "litro"
 
     };
 }
 
 <h2>Índice</h2>
 <p>
-    @Html.ActionLink("Criar nova estrutura", "Create")
+    @Html.ActionLink("Criar nova estrutura", "CreateStru") |
+    @Html.ActionLink("Criar novo item de estrutura", "Create")
 </p>
 @using (Html.BeginForm("Search", "Estruturas", FormMethod.Post))
 {
@@ -167,6 +168,7 @@
         <tr>
             <td>
                 @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Copiar", "CopyStru", new { id = item.Id })
                 @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
             </td>
@@ -289,6 +291,7 @@
             </td>
             <td>
                 @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Copiar", "CopyStru", new { id = item.Id })
                 @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
             </td>

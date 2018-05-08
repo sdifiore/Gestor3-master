@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Gestor.Models.Estrutura>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title @Model.First().Produto.Apelido: @Model.First().Produto.Descricao</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescCompProc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacao)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Alterar", "EditItem", new { id = item.Id }) <br />
+                    @Html.ActionLink("Copiar", "CopyItem", new { id = item.Id }) <br />
+                    @Html.ActionLink("Criar", "CreateItem", new { id = item.Id }) <br />
+                    @Html.ActionLink("Eliminar", "DeleteItem", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescCompProc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observacao)
+                </td>
+                <td>
+                    @Html.ActionLink("Alterar", "EditItem", new { id = item.Id }) <br />
+                    @Html.ActionLink("Copiar", "CopyItem", new { id = item.Id }) <br />
+                    @Html.ActionLink("Criar", "CreateItem", new { id = item.Id }) <br />
+                    @Html.ActionLink("Eliminar", "DeleteItem", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Gravar" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Descartar alterações e retornar a lista", "Discard")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

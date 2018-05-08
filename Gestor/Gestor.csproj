@@ -232,9 +232,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -1247,6 +1247,8 @@
     <Compile Include="Models\VarTc.cs" />
     <Compile Include="Models\VarVex.cs" />
     <Compile Include="Models\Vendedor.cs" />
+    <Compile Include="ViewModels\NavEstruturaViewModel.cs" />
+    <Compile Include="Wizard.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -2670,12 +2672,15 @@
     <Content Include="Views\Produtoes\Copy.cshtml" />
     <Content Include="Views\Insumoes\CreateCopyEdit.cshtml" />
     <Content Include="Views\Insumoes\Copy.cshtml" />
+    <Content Include="Views\Estruturas\CreateCopyEdit.cshtml" />
+    <Content Include="Views\Estruturas\CopyStru.cshtml" />
+    <Content Include="Views\Estruturas\DeleteItem.cshtml" />
+    <Content Include="Views\Estruturas\AlterStru.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="UploadedFiles\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\Migracao\" />
   </ItemGroup>
   <ItemGroup>
