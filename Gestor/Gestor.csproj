@@ -1248,7 +1248,6 @@
     <Compile Include="Models\VarVex.cs" />
     <Compile Include="Models\Vendedor.cs" />
     <Compile Include="ViewModels\NavEstruturaViewModel.cs" />
-    <Compile Include="Wizard.cs" />
     <Compile Include="XmlReader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -2675,7 +2674,7 @@
     <Content Include="Views\Estruturas\CreateCopyEdit.cshtml" />
     <Content Include="Views\Estruturas\CopyStru.cshtml" />
     <Content Include="Views\Estruturas\DeleteItem.cshtml" />
-    <Content Include="Views\Estruturas\AlterStru.cshtml" />
+    <Content Include="Views\Estruturas\EditAlterStu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

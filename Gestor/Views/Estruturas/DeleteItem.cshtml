@@ -1,8 +1,19 @@
-﻿
+﻿@model Gestor.Models.Estrutura
 @{
-    ViewBag.Title = "DeleteItem";
+    ViewBag.Title = "Eliminar item";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>Eliminar</h2>
+<h3>Tem certeza que deseja eliminar o item da estrutura @Model.Produto.Apelido?</h3>
 
-<h2>DeleteItem</h2>
+@Html.Partial("Common")
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        @Html.ActionLink("Retornar à estrutura", "EditAlterStu")
+    </div>
+}

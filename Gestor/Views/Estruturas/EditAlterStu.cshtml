@@ -30,8 +30,6 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink("Alterar", "EditItem", new { id = item.Id }) <br />
-                    @Html.ActionLink("Copiar", "CopyItem", new { id = item.Id }) <br />
                     @Html.ActionLink("Criar", "CreateItem", new { id = item.Id }) <br />
                     @Html.ActionLink("Eliminar", "DeleteItem", new { id = item.Id })
                 </td>
@@ -45,8 +43,6 @@
                     @Html.DisplayFor(modelItem => item.Observacao)
                 </td>
                 <td>
-                    @Html.ActionLink("Alterar", "EditItem", new { id = item.Id }) <br />
-                    @Html.ActionLink("Copiar", "CopyItem", new { id = item.Id }) <br />
                     @Html.ActionLink("Criar", "CreateItem", new { id = item.Id }) <br />
                     @Html.ActionLink("Eliminar", "DeleteItem", new { id = item.Id })
                 </td>
@@ -62,6 +58,7 @@
 }
 
 <div>
+    <br />
     @Html.ActionLink("Descartar alterações e retornar a lista", "Discard")
 </div>
 

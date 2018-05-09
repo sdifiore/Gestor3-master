@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Data;
 using System.Web.Mvc;
 using Gestor.Models;
 using Gestor.ViewModels;
@@ -160,20 +161,30 @@ namespace Gestor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CopyStru(int ProdutoId)
         {
-            Session["cStruProdId"] = ProdutoId;
+            Session["struDestino"] = ProdutoId;
             Session["ViewBagTitle"] = "Copiar estrutura";
 
             return RedirectToAction("AlterStru");
         }
 
-        public ViewResult AlterStru()
+        public ActionResult AlterStru()
         {
-            int produtoId = (int)Session["cStruProdId"];
+            int produtoId = (int)Session["struDestino"];
             int struOriId = (int)Session["StruOrigem"];
             ViewBag.Title = Session["ViewBagTitle"];
             var estruturas = Clone(produtoId, struOriId);
 
-            return View(estruturas);
+            return RedirectToAction("EditAlterStu");
+        }
+
+        public ActionResult EditAlterStu()
+        {
+            var struDestino = (int)Session["struDestino"];
+            var estrutura = db.Estruturas.Where(e => e.ProdutoId == struDestino);
+
+            if (estrutura.Any()) return View(estrutura);
+
+            return RedirectToAction("Index");
         }
 
         private IQueryable<Estrutura> Clone(int produtoId, int struOriId)
@@ -194,13 +205,45 @@ namespace Gestor.Controllers
             return estruturas;
         }
 
+        private IEnumerable<SelectList> ListAddOptions()
+        {
+            var produtos = db.Produtos
+                .AsEnumerable()
+                .Select(row => row.Field<string>("Apelido"))
+                .ToArray();
+
+        }
+
         public ActionResult DeleteItem(int id)
+        {
+            var estrutura = db.Estruturas
+                .Include(e => e.Produto)
+                .Include(e => e.Sequencia)
+                .Include(e => e.Unidade)
+                .Include(e => e.UnidadeCompra)
+                .Include(e => e.Familia)
+                .Include(e => e.Linha)
+                .Include(e => e.Categoria)
+                .SingleOrDefault(e => e.Id == id);
+
+            if (estrutura == null)
+            {
+                return HttpNotFound();
+            }
+            return View(estrutura);
+
+            
+        }
+
+        [HttpPost, ActionName("DeleteItem")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteItemConfirmed(int id)
         {
             var toBeDeleted = db.Estruturas.Find(id);
             db.Estruturas.Remove(toBeDeleted);
             db.SaveChanges();
 
-            return RedirectToAction("AlterStru");
+            return RedirectToAction("EditAlterStu");
         }
 
         // GET: Estruturas/Delete/5

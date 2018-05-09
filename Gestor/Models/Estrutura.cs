@@ -107,7 +107,7 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N4}")]
         public float TempMaq { get; set; }
 
-        [StringLength(128)] //-------------------------------------------------------------------
+        [StringLength(128)]
         [Display(Name = "Tipo Item Custo")]
         public string TipoItemCusto { get; set; }
 
