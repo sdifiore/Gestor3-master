@@ -2675,6 +2675,7 @@
     <Content Include="Views\Estruturas\CopyStru.cshtml" />
     <Content Include="Views\Estruturas\DeleteItem.cshtml" />
     <Content Include="Views\Estruturas\EditAlterStu.cshtml" />
+    <Content Include="Views\Estruturas\CreateItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

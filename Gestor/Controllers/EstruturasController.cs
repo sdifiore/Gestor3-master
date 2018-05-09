@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Data;
 using System.Web.Mvc;
 using Gestor.Models;
-using Gestor.ViewModels;
 using X.PagedList;
 
 namespace Gestor.Controllers
@@ -84,6 +82,7 @@ namespace Gestor.Controllers
             {
                 db.Estruturas.Add(estrutura);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -93,6 +92,7 @@ namespace Gestor.Controllers
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Descricao", estrutura.ProdutoId);
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao", estrutura.SequenciaId);
+
             return View(estrutura);
         }
 
@@ -187,31 +187,16 @@ namespace Gestor.Controllers
             return RedirectToAction("Index");
         }
 
-        private IQueryable<Estrutura> Clone(int produtoId, int struOriId)
+        public ViewResult CreateItem()
         {
-            var estruturas = db.Estruturas.Where(e => e.ProdutoId == struOriId);
-            
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao");
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao");
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
+            ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo");
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
+            ViewBag.ProdutoId = ListAddOptions();
 
-            foreach (var estrutura in estruturas)
-            {
-                db.Entry(estrutura).State = EntityState.Detached;
-                estrutura.Id = 0;
-                estrutura.ProdutoId = produtoId;
-                db.Entry(estrutura).State = EntityState.Added;
-            }
-            
-            db.SaveChanges();
-
-            return estruturas;
-        }
-
-        private IEnumerable<SelectList> ListAddOptions()
-        {
-            var produtos = db.Produtos
-                .AsEnumerable()
-                .Select(row => row.Field<string>("Apelido"))
-                .ToArray();
-
+            return View();
         }
 
         public ActionResult DeleteItem(int id)
@@ -230,9 +215,8 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(estrutura);
 
-            
+            return View(estrutura);
         }
 
         [HttpPost, ActionName("DeleteItem")]
@@ -246,6 +230,35 @@ namespace Gestor.Controllers
             return RedirectToAction("EditAlterStu");
         }
 
+        private IQueryable<Estrutura> Clone(int produtoId, int struOriId)
+        {
+            var estruturas = db.Estruturas.Where(e => e.ProdutoId == struOriId);
+            
+
+            foreach (var estrutura in estruturas)
+            {
+                db.Entry(estrutura).State = EntityState.Detached;
+                estrutura.Id = 0;
+                estrutura.ProdutoId = produtoId;
+                db.Entry(estrutura).State = EntityState.Added;
+            }
+            
+            db.SaveChanges();
+
+            return estruturas;
+        }
+
+        private SelectList ListAddOptions()
+        {
+            var produtos = db.Produtos.Select(p => p.Apelido);
+            var insumos = db.Insumos.Select(p => p.Apelido);
+            var operacoes = db.Operacoes.Select(o => o.CodigoOperacao);
+            var listaIni = produtos.Concat(insumos);
+            var lista = listaIni.Concat(operacoes);
+
+            return new SelectList(lista);
+        }     
+
         // GET: Estruturas/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -253,7 +266,6 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
 
             var estrutura = db.Estruturas
                 .Include(e => e.Produto)
@@ -269,6 +281,7 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(estrutura);
         }
 
@@ -278,6 +291,7 @@ namespace Gestor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Estrutura estrutura = db.Estruturas.Find(id);
+
             return View("Erase", estrutura);
         }
 
@@ -289,9 +303,9 @@ namespace Gestor.Controllers
             Estrutura estrutura = db.Estruturas.Find(id);
             db.Estruturas.Remove(estrutura);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
-
 
         [HttpPost]
         public ActionResult Search(int? page, string search)
