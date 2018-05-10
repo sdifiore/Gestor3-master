@@ -152,6 +152,11 @@ namespace Gestor.Controllers
             int estruturaId = int.Parse(id);
             var estrutura = db.Estruturas.First(e => e.Id == estruturaId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
+            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao");
+            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao");
+            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
+            ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo");
             Session["StruOrigem"] = estrutura.ProdutoId;
 
             return View(estrutura);
