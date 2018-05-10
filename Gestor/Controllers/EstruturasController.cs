@@ -58,44 +58,6 @@ namespace Gestor.Controllers
             return View(estrutura);
         }
 
-        // GET: Estruturas/Create
-        public ActionResult Create()
-        {
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao");
-            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao");
-            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
-            ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo");
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
-
-            return View();
-        }
-
-        // POST: Estruturas/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ProdutoId,UnidadeId,QtdCusto,SequenciaId,Item,DescCompProc,UnidadeCompraId,CustoUnitCompra,Onera,Lote,Perda,Observacao,PartCusto,QtEftvUntrCmpnt,CstCmprUndPrd,CustoIndividual,QtdUndd,RefAuxiliarProduto,TpItmCst,CategoriaId,FamiliaId,LinhaId,AlrtSbPrdt,TempMaq,TipoItemCusto,PsLiqdFnl,PsLiqdPrcdt,HrsModFnl,HrsModPrec1,HrsModPrec2,IdProd,IdCmpnt,PdrHoraria,ProdComp,CstIndividual,CstMtrlDrt,CstMtrlPrcd1,CstMtrlPrcd2,CstMtrlPrcd3,Header,SetorProducao,ListaPlanejProducao,NeedComponProducao,ListaNecessProdNivel1,NecCompListaP1,ListaNecessProdNivel2,NecCompListaP2,ListaNecessProdNivel3,NecCompListaP3,ListaNecessProdNivel4,NecCompListaP4,NecTotalComponente,Mes1,Mes2,Mes3,Mes4,Mes5,Mes6,Mes7,Mes8,Mes9,Mes10,Mes11,Mes12,Input")] Estrutura estrutura)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Estruturas.Add(estrutura);
-                db.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Descricao", estrutura.CategoriaId);
-            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Descricao", estrutura.FamiliaId);
-            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao", estrutura.LinhaId);
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Descricao", estrutura.ProdutoId);
-            ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao", estrutura.SequenciaId);
-
-            return View(estrutura);
-        }
-
         public ActionResult Edit(int? id)
         {
             var produtoId = db.Estruturas.Find(id).ProdutoId;
@@ -103,32 +65,6 @@ namespace Gestor.Controllers
             Session["ViewBagTitle"] = "Alterar estrutura";
 
             return RedirectToAction("EditAlterStu");
-        }
-
-        // POST: Estruturas/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProdutoId,UnidadeId,QtdCusto,SequenciaId,Item,DescCompProc,UnidadeCompraId,CustoUnitCompra,Onera,Lote,Perda,Observacao,PartCusto,QtEftvUntrCmpnt,CstCmprUndPrd,CustoIndividual,QtdUndd,RefAuxiliarProduto,TpItmCst,CategoriaId,FamiliaId,LinhaId,AlrtSbPrdt,TempMaq,TipoItemCusto,PsLiqdFnl,PsLiqdPrcdt,HrsModFnl,HrsModPrec1,HrsModPrec2,IdProd,IdCmpnt,PdrHoraria,ProdComp,CstIndividual,CstMtrlDrt,CstMtrlPrcd1,CstMtrlPrcd2,CstMtrlPrcd3,Header,SetorProducao,ListaPlanejProducao,NeedComponProducao,ListaNecessProdNivel1,NecCompListaP1,ListaNecessProdNivel2,NecCompListaP2,ListaNecessProdNivel3,NecCompListaP3,ListaNecessProdNivel4,NecCompListaP4,NecTotalComponente,Mes1,Mes2,Mes3,Mes4,Mes5,Mes6,Mes7,Mes8,Mes9,Mes10,Mes11,Mes12,Input")] Estrutura estrutura)
-        {
-            if (ModelState.IsValid)
-            {
-                estrutura.Perda = estrutura.Perda / 100;
-
-                db.Entry(estrutura).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", estrutura.CategoriaId);
-            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", estrutura.FamiliaId);
-            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", estrutura.LinhaId);
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", estrutura.ProdutoId);
-            ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
-            ViewBag.UnidadeCompraId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeCompraId);
-
-            return View(estrutura);
         }
 
         public ViewResult CreateStru()
