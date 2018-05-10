@@ -14,7 +14,17 @@ namespace Gestor.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: PlanejVendas
-        public ActionResult Index(int? page)
+
+        public ViewResult Index()
+        {
+            var categorias = db.Categorias.Select(c => c);
+            ViewBag.Status = true;
+
+            return View(categorias);
+        }
+
+
+        public ActionResult List(int? page)
         {
             ViewBag.incremento = db.Memorias.First().PvIncrementoGlobal * 100;
             ViewBag.despExp = db.Memorias.First().DespExp * 100;
@@ -54,6 +64,7 @@ namespace Gestor.Controllers
         public ActionResult Create()
         {
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
+
             return View();
         }
 
@@ -68,10 +79,12 @@ namespace Gestor.Controllers
             {
                 db.PlanejVendas.Add(planejVenda);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("List");
             }
 
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", planejVenda.ProdutoId);
+
             return View(planejVenda);
         }
 
@@ -82,12 +95,16 @@ namespace Gestor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             PlanejVenda planejVenda = db.PlanejVendas.Find(id);
+
             if (planejVenda == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", planejVenda.ProdutoId);
+
             return View(planejVenda);
         }
 
@@ -102,9 +119,12 @@ namespace Gestor.Controllers
             {
                 db.Entry(planejVenda).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("List");
             }
+
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", planejVenda.ProdutoId);
+
             return View(planejVenda);
         }
 
@@ -124,6 +144,7 @@ namespace Gestor.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(planejVenda);
         }
 
@@ -148,7 +169,7 @@ namespace Gestor.Controllers
             db.PlanejVendas.Remove(planejVenda);
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         [HttpPost]
@@ -177,7 +198,7 @@ namespace Gestor.Controllers
             var planejVendas = db.PlanejVendas
                 .Include(p => p.Produto);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         [HttpPost]
@@ -191,7 +212,7 @@ namespace Gestor.Controllers
             var planejVendas = db.PlanejVendas
                 .Include(p => p.Produto);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         public ViewResult VarTc()
@@ -240,7 +261,7 @@ namespace Gestor.Controllers
 
                 Populate.PlanejVendas();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             return RedirectToAction("VarTc");
@@ -306,7 +327,7 @@ namespace Gestor.Controllers
 
                 Populate.PlanejVendas();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             return RedirectToAction("VarPv");
@@ -352,7 +373,7 @@ namespace Gestor.Controllers
 
                 Populate.PlanejVendas();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             return RedirectToAction("Aumdim");
@@ -419,7 +440,7 @@ namespace Gestor.Controllers
 
                 Populate.PlanejVendas();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             return RedirectToAction("Varvex");
@@ -458,7 +479,7 @@ namespace Gestor.Controllers
 
             Populate.PlanejVendas();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(actionName: "List", controllerName: "Home");
         }
 
 
