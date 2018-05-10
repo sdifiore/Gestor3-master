@@ -147,6 +147,22 @@ namespace Gestor.Controllers
             return View(estrutura);
         }
 
+        public ViewResult CreateStru()
+        {
+            var estrutura = new Estrutura();
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido");
+
+            return View(estrutura);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateStru(int produtoId)
+        {
+            Session["struDestino"] = produtoId;
+            Session["ViewBagTitle"] = "Criar estrutura";
+        }
+
         public ActionResult CopyStru(string id)
         {
             int estruturaId = int.Parse(id);
@@ -199,9 +215,21 @@ namespace Gestor.Controllers
             ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Descricao");
             ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo");
             ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao");
-            ViewBag.ProdutoId = ListAddOptions();
+            ViewBag.Item = ListAddOptions();
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateItem([Bind(Include = "UnidadeId,QtdCusto,SequenciaId,Item,Onera,Lote,Perda,Observacao,CategoriaId,FamiliaId,LinhaId")] Estrutura estrutura)
+        {
+            estrutura.ProdutoId = (int)Session["struDestino"];
+            estrutura.DescCompProc = GetDescricao(estrutura.Item);
+            db.Estruturas.Add(estrutura);
+            db.SaveChanges();
+
+            return RedirectToAction("EditAlterStu");
         }
 
         public ActionResult DeleteItem(int id)
@@ -262,7 +290,32 @@ namespace Gestor.Controllers
             var lista = listaIni.Concat(operacoes);
 
             return new SelectList(lista);
-        }     
+        }
+        
+        private string GetDescricao(string codigo)
+        {
+            string result = "";
+
+            var insumo = db.Insumos.SingleOrDefault(i => i.Apelido == codigo);
+
+            if (insumo == null)
+            {
+                var produto = db.Produtos.SingleOrDefault(p => p.Apelido == codigo);
+
+                if (produto == null)
+                {
+                    var operacao = db.Operacoes.SingleOrDefault(o => o.CodigoOperacao == codigo);
+
+                    if (operacao != null) result = operacao.Descricao;
+                }
+
+                else result = produto.Descricao;
+            }
+
+            else result = insumo.Descricao;
+
+            return result;
+        }
 
         // GET: Estruturas/Delete/5
         public ActionResult Delete(int? id)
