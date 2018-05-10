@@ -98,27 +98,11 @@ namespace Gestor.Controllers
 
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Estrutura estrutura = db.Estruturas.Find(id);
-            if (estrutura == null)
-            {
-                return HttpNotFound();
-            }
+            var produtoId = db.Estruturas.Find(id).ProdutoId;
+            Session["struDestino"] = produtoId;
+            Session["ViewBagTitle"] = "Alterar estrutura";
 
-            estrutura.Perda = estrutura.Perda * 100;
-
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Apelido", estrutura.CategoriaId);
-            ViewBag.FamiliaId = new SelectList(db.Familias, "FamiliaId", "Apelido", estrutura.FamiliaId);
-            ViewBag.LinhaId = new SelectList(db.Linhas, "LinhaId", "Apelido", estrutura.LinhaId);
-            ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", estrutura.ProdutoId);
-            ViewBag.SequenciaId = new SelectList(db.Sequencias, "SequenciaId", "Tipo", estrutura.SequenciaId);
-            ViewBag.UnidadeId = new SelectList(db.Unidades, "UnidadeId", "Descricao", estrutura.SequenciaId);
-            ViewBag.UnidadeCompraId = new SelectList(db.Unidades, "UnidadeId", "Apelido", estrutura.UnidadeCompraId);
-
-            return View(estrutura);
+            return RedirectToAction("EditAlterStu");
         }
 
         // POST: Estruturas/Edit/5
@@ -161,6 +145,8 @@ namespace Gestor.Controllers
         {
             Session["struDestino"] = produtoId;
             Session["ViewBagTitle"] = "Criar estrutura";
+
+            return RedirectToAction("CreateItem");
         }
 
         public ActionResult CopyStru(string id)
