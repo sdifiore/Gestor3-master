@@ -2451,7 +2451,7 @@
     <Content Include="Views\PlanejVendas\Delete.cshtml" />
     <Content Include="Views\PlanejVendas\Details.cshtml" />
     <Content Include="Views\PlanejVendas\Edit.cshtml" />
-    <Content Include="Views\PlanejVendas\Index.cshtml" />
+    <Content Include="Views\PlanejVendas\Filter.cshtml" />
     <Content Include="Views\PlanejProducaos\Create.cshtml" />
     <Content Include="Views\PlanejProducaos\Delete.cshtml" />
     <Content Include="Views\PlanejProducaos\Details.cshtml" />

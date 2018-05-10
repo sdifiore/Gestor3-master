@@ -12,12 +12,13 @@
     @Html.AntiForgeryToken()
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h3>Categoria</h3>
 
             @{
                 int i = -1;
                 bool status = (bool)ViewBag.Status;
+                bool defaul = (bool)ViewBag.Default;
             }
             @foreach (var item in Model)
             {
@@ -28,31 +29,39 @@
                     }
                     <div class="form-check">
                         @Html.CheckBox(nome, status, new { @class = "form-check-input" })
-                        @Html.Label(item.Descricao, new { @class = "form-check-label"})
+                        @Html.Label(item.Descricao, new { @class = "form-check-label" })
                     </div>
                 </p>
             }
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h3>Ativo</h3>
             <div class="form-check">
                 @Html.CheckBox("Ativo", status, new { @class = "form-check-input" })
                 @Html.Label("Ativo", new { @class = "form-check-label" })
             </div>
             <div class="form-check">
-                @Html.CheckBox("Descontinuado", false, new { @class = "form-check-input" })
+                @Html.CheckBox("Descontinuado", defaul, new { @class = "form-check-input" })
                 @Html.Label("Descontinuado", new { @class = "form-check-label" })
             </div>
+
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <br />
-                <input type="submit" value="Continuar" class="btn btn-default" />
-            </div>
+        <div class="col-md-4">
+            <h3>Marcar</h3>
+            <p><a href="/PlanejVendas/All" class="btn btn-primary btn-lg">&nbsp;&nbsp;Todos&nbsp;&nbsp;</a></p>
+            <p><a href="/PlanejVendas/None" class="btn btn-primary btn-lg">Nenhum</a></p>
+            <p><a href="/PlanejVendas/Index" class="btn btn-primary btn-lg">&nbsp;Default&nbsp;</a></p>
         </div>
 
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <br />
+            <input type="submit" value="Continuar" class="btn btn-default" />
+        </div>
     </div>
 }
 

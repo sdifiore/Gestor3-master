@@ -15,10 +15,36 @@ namespace Gestor.Controllers
 
         // GET: PlanejVendas
 
-        public ViewResult Index()
+        public ActionResult Index()
         {
-            var categorias = db.Categorias.Select(c => c);
-            ViewBag.Status = true;
+            Session["Status"] = true;
+            Session["Default"] = false;
+
+            return RedirectToAction("Filter");
+        }
+
+        public ActionResult All()
+        {
+            Session["Status"] = true;
+            Session["Default"] = true;
+
+            return RedirectToAction("Filter");
+        }
+
+        public ActionResult None()
+        {
+            Session["Status"] = false;
+            Session["Default"] = false;
+
+            return RedirectToAction("Filter");
+        }
+
+        public ViewResult Filter(List<bool> opcoes)
+        {
+            var categorias = db.Categorias.Select(c => c)
+                .OrderBy(c => c.Apelido);
+            ViewBag.Status = Session["Status"];
+            ViewBag.Default = Session["Default"];
 
             return View(categorias);
         }
