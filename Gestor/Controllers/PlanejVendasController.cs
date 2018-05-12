@@ -4,7 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using AutoMapper;
 using Gestor.Models;
+using Gestor.ViewModels;
 using X.PagedList;
 
 namespace Gestor.Controllers
@@ -68,7 +70,7 @@ namespace Gestor.Controllers
         {
             ViewBag.incremento = db.Memorias.First().PvIncrementoGlobal * 100;
             ViewBag.despExp = db.Memorias.First().DespExp * 100;
-            List<PlanejVenda> planejVendas = Populate();
+            List<PlanejVendasViewModel> planejVendas = Populate();
 
             var pageNumber = page ?? 1;
             var onePageHistory = planejVendas.ToPagedList(pageNumber, Global.PageNumber);
@@ -78,35 +80,46 @@ namespace Gestor.Controllers
             return View();
         }
 
-        private List<PlanejVenda> Populate()
+        private List<PlanejVendasViewModel> Populate()
         {
-            var planejVendas = db.PlanejVendas;
-            var result = new List<PlanejVenda>();
-            var flags = GetFlags();
+            var result = new List<PlanejVendasViewModel>();
+            var planejVendas = db.PlanejVendas.Select(pv => pv);
             var codes = db.Categorias
                         .OrderBy(c => c.Apelido)
                         .Select(c => c.CategoriaId)
                         .ToList();
-            int count = flags.Count - 1;
+            var flags = GetFlags();
+            int countFlags = flags.Count - 1;
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < countFlags; i++)
                 if (!flags[i]) codes.RemoveAt(i);
 
             foreach (var code in codes)
             {
-                var cup = planejVendas.Where(r => r.CategoriaId == code);
-                cup = GetDescricao(cup);
-                result = result.Concat(cup).ToList();
+                var hold = planejVendas.Where(pv => pv.CategoriaId == code).ToList();
+
+                foreach (var item in hold)
+                {
+                    var produto = db.Produtos.SingleOrDefault(p => p.Id == item.ProdutoId);
+                    var toBeAdded = new PlanejVendasViewModel();
+                    toBeAdded = Mapper.Map<PlanejVenda, PlanejVendasViewModel>(item);
+                    toBeAdded.Codigo = produto.Codigo;
+                    toBeAdded.Descricao = produto.Descricao;
+
+                    result.Add(toBeAdded);
+                }
             }
 
-            return result.OrderBy(p => p.ProdutoId).ToList();
+            return result.OrderBy(r => r.Codigo).ToList();
         }
 
         private static IQueryable<PlanejVenda> GetDescricao(IQueryable<PlanejVenda> cup)
         {
+            var boh = cup.ToList();
+
             foreach (var item in cup)
             {
-                
+                var mah = item.ToString();
             }
 
             return cup;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using Gestor.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,7 @@ namespace Gestor
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c => c.AddProfile<AutomapperProfile>());
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

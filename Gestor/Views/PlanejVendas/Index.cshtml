@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Gestor.Models.PlanejVenda>
+﻿@model IEnumerable<Gestor.ViewModels.PlanejVendasViewModel>
 @using X.PagedList.Mvc;
 @using X.PagedList;
 @{
     ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    IPagedList<Gestor.Models.PlanejVenda> planej = ViewBag.OnePageHistory;
+    IPagedList<Gestor.ViewModels.PlanejVendasViewModel> planej = ViewBag.OnePageHistory;
 }
 
 <div class="row">
@@ -56,10 +56,10 @@
     <tr>
         <th></th>
         <th>
-            @Html.DisplayNameFor(model => model.Produto.Apelido)
+            @Html.DisplayNameFor(model => model.Codigo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Produto.Descricao)
+            @Html.DisplayNameFor(model => model.Descricao)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PesoUnitario)
@@ -802,7 +802,7 @@
         <th>
             @Html.DisplayNameFor(model => model.McCustoDirMatModTotal)
         </th>
-        @* --- *@
+        @*  *@
         <th>
             @Html.DisplayNameFor(model => model.McCustoModTotalAjustado)
         </th>
@@ -812,7 +812,7 @@
         <th>
             @Html.DisplayNameFor(model => model.McDiretaAjustadaTotal)
         </th>
-        @* --- *@
+        @*  *@
         <th>
             @Html.DisplayNameFor(model => model.McCustoFixoFabricaTotal)
         </th>
@@ -1211,10 +1211,10 @@
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Produto.Apelido)
+                @Html.DisplayFor(modelItem => item.Codigo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Produto.Descricao)
+                @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PesoUnitario)
@@ -1309,9 +1309,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FreteNacPct)
             </td>
-            @*<td>
+            <td>
                     @Html.DisplayFor(modelItem => item.MesRecebMedExp)
-                </td>*@
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MesRecebMedNac)
             </td>
@@ -1474,7 +1474,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PplKgNacTotal)
             </td>
-            @* --- *@
+            @*  *@
             <td>
                 <a href="/PlanejVendas/VarPv">@item.PvvpvaVarPvAnoMenos12</a>
             </td>
@@ -1511,7 +1511,7 @@
             <td>
                 <a href="/PlanejVendas/VarPv">@item.PvvpvaVarPvAno</a>
             </td>
-            @* --- *@
+             @**@ 
             <td>
                 @Html.DisplayFor(modelItem => item.PcbRbNacAnoMenos12)
             </td>
@@ -1740,14 +1740,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CrnComentario)
             </td>
-            @* --- *@
+             @**@ 
             <td>
                 <a href="/PlanejVendas/Aumdim">@item.PqeCriterio</a>
             </td>
             <td>
                 <a href="/PlanejVendas/Aumdim">@item.PqeAumDim</a>
             </td>
-            @* --- *@
+             @**@ 
             <td>
                 @Html.DisplayFor(modelItem => item.PqeQtExpAnoMenos12)
             </td>
@@ -1826,7 +1826,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PpleKgExpTotal)
             </td>
-            @* --- *@
+             @**@ 
             <td>
                 @Html.ActionLink(String.Format("{0:P1}", item.PvppvaVPVexAnoMenos12), "Varvex")
             </td>
@@ -1863,7 +1863,7 @@
             <td>
                 @Html.ActionLink(String.Format("{0:P1}", item.PvppvaVPVexAno), "Varvex")
             </td>
-            @* --- *@
+             @**@ 
             <td>
                 @Html.DisplayFor(modelItem => item.PreUsdRcExpUsAnoMenos12)
             </td>
@@ -1966,7 +1966,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.McCustoDirMatModTotal)
             </td>
-            @* --- *@
+              
             <td>
                 @Html.DisplayFor(modelItem => item.McCustoModTotalAjustado)
             </td>
@@ -1976,7 +1976,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.McDiretaAjustadaTotal)
             </td>
-            @* --- *@
+              
             <td>
                 @Html.DisplayFor(modelItem => item.McCustoFixoFabricaTotal)
             </td>
