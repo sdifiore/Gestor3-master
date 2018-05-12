@@ -16,6 +16,10 @@ namespace Gestor.Models
         [DisplayFormat(DataFormatString = "{0:N3}")]
         public Produto Produto { get; set; }
 
+        public int CategoriaId { get; set; }
+
+        public Categoria Categorias { get; set; }
+
         [Display(Name = "Peso Unitário")]
         [DisplayFormat(DataFormatString = "{0:N3}")]
         public float PesoUnitario { get; set; }

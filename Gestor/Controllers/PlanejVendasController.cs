@@ -15,7 +15,7 @@ namespace Gestor.Controllers
 
         // GET: PlanejVendas
 
-        public ActionResult Index()
+        public ActionResult PreFilter()
         {
             Session["Status"] = true;
             Session["Default"] = false;
@@ -39,7 +39,7 @@ namespace Gestor.Controllers
             return RedirectToAction("Filter");
         }
 
-        public ViewResult Filter(List<bool> opcoes)
+        public ViewResult Filter()
         {
             var categorias = db.Categorias.Select(c => c)
                 .OrderBy(c => c.Apelido);
@@ -49,15 +49,26 @@ namespace Gestor.Controllers
             return View(categorias);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Filter(List<bool> flag)
+        {
+            db.Database.ExecuteSqlCommand("DELETE FROM dbo.PlanejVendasFilters");
 
-        public ActionResult List(int? page)
+            foreach (var item in flag)
+                db.PlanejVendasFilters.Add(new PlanejVendasFilter { flag = item });
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Index(int? page)
         {
             ViewBag.incremento = db.Memorias.First().PvIncrementoGlobal * 100;
             ViewBag.despExp = db.Memorias.First().DespExp * 100;
-
-            var planejVendas = db.PlanejVendas
-                .Include(p => p.Produto)
-                .OrderBy(p => p.Produto.Apelido);
+            List<PlanejVenda> planejVendas = Populate();
 
             var pageNumber = page ?? 1;
             var onePageHistory = planejVendas.ToPagedList(pageNumber, Global.PageNumber);
@@ -65,6 +76,51 @@ namespace Gestor.Controllers
             ViewBag.OnePageHistory = onePageHistory;
 
             return View();
+        }
+
+        private List<PlanejVenda> Populate()
+        {
+            var planejVendas = db.PlanejVendas;
+            var result = new List<PlanejVenda>();
+            var flags = GetFlags();
+            var codes = db.Categorias
+                        .OrderBy(c => c.Apelido)
+                        .Select(c => c.CategoriaId)
+                        .ToList();
+            int count = flags.Count - 1;
+
+            for (int i = 0; i < count; i++)
+                if (!flags[i]) codes.RemoveAt(i);
+
+            foreach (var code in codes)
+            {
+                var cup = planejVendas.Where(r => r.CategoriaId == code);
+                cup = GetDescricao(cup);
+                result = result.Concat(cup).ToList();
+            }
+
+            return result.OrderBy(p => p.ProdutoId).ToList();
+        }
+
+        private static IQueryable<PlanejVenda> GetDescricao(IQueryable<PlanejVenda> cup)
+        {
+            foreach (var item in cup)
+            {
+                
+            }
+
+            return cup;
+        }
+
+        private List<bool> GetFlags()
+        {
+            var result = new List<bool>();
+            var flags = db.PlanejVendasFilters;
+
+            foreach (var flag in flags)
+                result.Add(flag.flag);
+
+            return result;
         }
 
         // GET: PlanejVendas/Details/5
@@ -106,7 +162,7 @@ namespace Gestor.Controllers
                 db.PlanejVendas.Add(planejVenda);
                 db.SaveChanges();
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", planejVenda.ProdutoId);
@@ -146,7 +202,7 @@ namespace Gestor.Controllers
                 db.Entry(planejVenda).State = EntityState.Modified;
                 db.SaveChanges();
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             ViewBag.ProdutoId = new SelectList(db.Produtos, "Id", "Apelido", planejVenda.ProdutoId);
@@ -195,7 +251,7 @@ namespace Gestor.Controllers
             db.PlanejVendas.Remove(planejVenda);
             db.SaveChanges();
 
-            return RedirectToAction("List");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -220,11 +276,11 @@ namespace Gestor.Controllers
             memoria.PvIncrementoGlobal = incremento / 100;
             db.SaveChanges();
             ViewBag.incremento = incremento;
-            Populate.PlanejVendas();
+            Gestor.Populate.PlanejVendas();
             var planejVendas = db.PlanejVendas
                 .Include(p => p.Produto);
 
-            return RedirectToAction("List");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -234,11 +290,11 @@ namespace Gestor.Controllers
             memoria.DespExp = despExp / 100;
             db.SaveChanges();
             ViewBag.despExp = despExp;
-            Populate.PlanejVendas();
+            Gestor.Populate.PlanejVendas();
             var planejVendas = db.PlanejVendas
                 .Include(p => p.Produto);
 
-            return RedirectToAction("List");
+            return RedirectToAction("Index");
         }
 
         public ViewResult VarTc()
@@ -285,9 +341,9 @@ namespace Gestor.Controllers
                     db.SaveChanges();
                 }
 
-                Populate.PlanejVendas();
+                Gestor.Populate.PlanejVendas();
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("VarTc");
@@ -351,9 +407,9 @@ namespace Gestor.Controllers
 
                 db.SaveChanges();
 
-                Populate.PlanejVendas();
+                Gestor.Populate.PlanejVendas();
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("VarPv");
@@ -397,9 +453,9 @@ namespace Gestor.Controllers
 
                 db.SaveChanges();
 
-                Populate.PlanejVendas();
+                Gestor.Populate.PlanejVendas();
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("Aumdim");
@@ -464,9 +520,9 @@ namespace Gestor.Controllers
 
                 db.SaveChanges();
 
-                Populate.PlanejVendas();
+                Gestor.Populate.PlanejVendas();
 
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("Varvex");
@@ -486,24 +542,24 @@ namespace Gestor.Controllers
             {
                 db.Database.ExecuteSqlCommand("DELETE FROM dbo.PlanejVendas");
                 var produtos = db.Produtos.ToList();
+                int i = 0;
 
                 foreach (var produto in produtos)
                 {
-                    if (produto.Ativo)
+                    var data = new PlanejVenda
                     {
-                        var data = new PlanejVenda
-                        {
-                            ProdutoId = produto.Id,
-                            RefAno = dia.Hoje
-                        };
+                        ProdutoId = produto.Id,
+                        RefAno = dia.Hoje,
+                        CategoriaId = produtos[i++].CategoriaId
+                    };
 
-                        db.PlanejVendas.Add(data);
-                    }
+                    db.PlanejVendas.Add(data);
+                    
                 }
                 db.SaveChanges();
             }
 
-            Populate.PlanejVendas();
+            Gestor.Populate.PlanejVendas();
 
             return RedirectToAction(actionName: "List", controllerName: "Home");
         }

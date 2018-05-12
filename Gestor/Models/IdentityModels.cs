@@ -75,6 +75,7 @@ namespace Gestor.Models
         public DbSet<PlanejMod> PlanejMods { get; set; }
         public DbSet<PlanejProducao> PlanejProducoes { get; set; }
         public DbSet<PlanejVenda> PlanejVendas { get; set; }
+        public DbSet<PlanejVendasFilter> PlanejVendasFilters { get; set; }
         public DbSet<PreForma> PreFormas { get; set; }
         public DbSet<PrecoExportacao> PrecosExpostacao { get; set; }
         public DbSet<PrecoNacional> PrecosNacionais { get; set; }

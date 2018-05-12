@@ -6,7 +6,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     IPagedList<Gestor.Models.PlanejVenda> planej = ViewBag.OnePageHistory;
 }
-<h2>Índice</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Índice</h2>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <p></p>
+        <p><a href="/PlanejVendas/Prefilter" class="btn btn-primary">Filtros</a></p>
+    </div>
+</div>
+
+
 <p>
     @Html.ActionLink("Criar novo planejamento de compra", "Create")
 </p>
