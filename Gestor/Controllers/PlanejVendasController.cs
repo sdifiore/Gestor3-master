@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using AutoMapper;
 using Gestor.Models;
 using Gestor.ViewModels;
+using AutoMapper;
 using X.PagedList;
 
 namespace Gestor.Controllers
@@ -83,20 +83,11 @@ namespace Gestor.Controllers
         private List<PlanejVendasViewModel> Populate()
         {
             var result = new List<PlanejVendasViewModel>();
-            var planejVendas = db.PlanejVendas.Select(pv => pv);
-            var codes = db.Categorias
-                        .OrderBy(c => c.Apelido)
-                        .Select(c => c.CategoriaId)
-                        .ToList();
-            var flags = GetFlags();
-            int countFlags = flags.Count - 1;
+            List<int> flags = GetFiltersIds();
 
-            for (int i = 0; i < countFlags; i++)
-                if (!flags[i]) codes.RemoveAt(i);
-
-            foreach (var code in codes)
+            foreach (var flag in flags)
             {
-                var hold = planejVendas.Where(pv => pv.CategoriaId == code).ToList();
+                var hold = db.PlanejVendas.Where(pv => pv.CategoriaId == flag).ToList();
 
                 foreach (var item in hold)
                 {
@@ -113,16 +104,21 @@ namespace Gestor.Controllers
             return result.OrderBy(r => r.Codigo).ToList();
         }
 
-        private static IQueryable<PlanejVenda> GetDescricao(IQueryable<PlanejVenda> cup)
+        private List<int> GetFiltersIds()
         {
-            var boh = cup.ToList();
+            var result = new List<int>();
+            var codes = db.Categorias
+                        .OrderBy(c => c.Apelido)
+                        .Select(c => c.CategoriaId)
+                        .ToList();
+            var filter = db.PlanejVendasFilters.ToList();
+            int i = 0;
 
-            foreach (var item in cup)
-            {
-                var mah = item.ToString();
-            }
+            foreach (var code in codes)
+                if (filter[i++].flag)
+                    result.Add(code);
 
-            return cup;
+            return result;
         }
 
         private List<bool> GetFlags()

@@ -1259,6 +1259,7 @@
     <Compile Include="Models\SemanaEstoque.cs" />
     <Compile Include="Models\Serie.cs" />
     <Compile Include="Models\TdHistorico.cs" />
+    <Compile Include="Models\CodeFilter.cs" />
     <Compile Include="Models\TipoCliente.cs" />
     <Compile Include="Models\TipoVenda.cs" />
     <Compile Include="Models\TotalParmGraxa.cs" />
