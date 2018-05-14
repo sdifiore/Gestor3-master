@@ -70,11 +70,11 @@ namespace Gestor.Controllers
         {
             ViewBag.incremento = db.Memorias.First().PvIncrementoGlobal * 100;
             ViewBag.despExp = db.Memorias.First().DespExp * 100;
+
             List<PlanejVendasViewModel> planejVendas = Populate();
 
             var pageNumber = page ?? 1;
             var onePageHistory = planejVendas.ToPagedList(pageNumber, Global.PageNumber);
-
             ViewBag.OnePageHistory = onePageHistory;
 
             return View();
@@ -84,10 +84,11 @@ namespace Gestor.Controllers
         {
             var result = new List<PlanejVendasViewModel>();
             List<int> flags = GetFiltersIds();
+            var planejVendas = GetPlanejVendas();
 
             foreach (var flag in flags)
             {
-                var hold = db.PlanejVendas.Where(pv => pv.CategoriaId == flag).ToList();
+                var hold = planejVendas.Where(pv => pv.CategoriaId == flag).ToList();
 
                 foreach (var item in hold)
                 {
@@ -104,6 +105,36 @@ namespace Gestor.Controllers
             return result.OrderBy(r => r.Codigo).ToList();
         }
 
+        private List<PlanejVenda> GetPlanejVendas()
+        {
+            var result = new List<PlanejVenda>();
+            bool ativo = GetAtivo();
+            var produtos = db.Produtos;
+            var planejVendas = db.PlanejVendas.ToList();
+
+            foreach (var produto in produtos)
+            {
+                if (produto.Ativo == ativo)
+                {
+                    var hold = planejVendas.Where(pv => pv.ProdutoId == produto.Id);
+
+                    foreach (var item in hold)
+                        result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        private bool GetAtivo()
+        {
+            var pvf = db.PlanejVendasFilters.ToList();
+            int pos = pvf.Count() - 2;
+            bool result = pvf.ElementAt(pos).flag;
+
+            return result;
+        }
+
         private List<int> GetFiltersIds()
         {
             var result = new List<int>();
@@ -117,17 +148,6 @@ namespace Gestor.Controllers
             foreach (var code in codes)
                 if (filter[i++].flag)
                     result.Add(code);
-
-            return result;
-        }
-
-        private List<bool> GetFlags()
-        {
-            var result = new List<bool>();
-            var flags = db.PlanejVendasFilters;
-
-            foreach (var flag in flags)
-                result.Add(flag.flag);
 
             return result;
         }
