@@ -52,3 +52,23 @@ textarea {
     display: table-cell;
     vertical-align: middle;
 }
+
+.compartimento {
+    position: relative;
+}
+
+.linha {
+    clear: both;
+}
+
+.linha div {
+    float: left;
+    width: auto;
+    margin-bottom: auto;
+}
+
+.tabela {
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
