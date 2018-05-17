@@ -590,7 +590,7 @@ namespace Gestor.Controllers
 
             Gestor.Populate.PlanejVendas();
 
-            return RedirectToAction(actionName: "List", controllerName: "Home");
+            return RedirectToAction(actionName: "Index", controllerName: "Home");
         }
 
 
