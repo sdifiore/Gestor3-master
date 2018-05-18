@@ -10,7 +10,6 @@
 <p>
     @Html.ActionLink("Criar nova entrada para PCP", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "Pcps", FormMethod.Post))
 {
     <p>
@@ -18,33 +17,56 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in pcps)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.PcpId }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.PcpId }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.PcpId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.PcpId }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.PcpId }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.PcpId })
-            </td>
-        </tr>
-    }
-</table>
+        <tbody>
+            @foreach (var item in pcps)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.PcpId }) <br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.PcpId }) <br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.PcpId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.PcpId }) <br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.PcpId }) <br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.PcpId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

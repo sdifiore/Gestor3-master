@@ -10,7 +10,6 @@
 <p>
     @Html.ActionLink("Criar nova medida", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "MedidaFitas", FormMethod.Post))
 {
     <p>
@@ -18,45 +17,68 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LarguraMm)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ComprimentoMetros)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LarguraMm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ComprimentoMetros)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in medidas)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.MedidaFitaId }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.MedidaFitaId }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.MedidaFitaId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apelido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LarguraMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComprimentoMetros)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.MedidaFitaId }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.MedidaFitaId }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.MedidaFitaId })
-            </td>
-        </tr>
-    }
-</table>
+        <tbody>
+            @foreach (var item in medidas)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.MedidaFitaId }) <br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.MedidaFitaId }) <br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.MedidaFitaId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apelido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LarguraMm)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ComprimentoMetros)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.MedidaFitaId }) <br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.MedidaFitaId }) <br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.MedidaFitaId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

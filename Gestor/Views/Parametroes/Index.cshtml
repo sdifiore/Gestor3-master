@@ -10,164 +10,188 @@
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dolar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PropFitasFioGaxeta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PropSucatas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PropGrafitado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HMod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoFixoIndustrialAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoFixoComercialAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoFixoComtexAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoFixoAdminAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoFolhaModAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SemanasReposicao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ComissaoGcComacs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Icms)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ipi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Inss)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comissão)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Frete)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MargemLiquida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ComissGestVenda)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CondicaoPgtoStd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TxJuroStd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoFin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoCobranca)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in parms)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dolar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropFitasFioGaxeta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropSucatas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropGrafitado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HMod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFixoIndustrialAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFixoComercialAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFixoComtexAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFixoAdminAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFolhaModAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SemanasReposicao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComissaoGcComacs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Icms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ipi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Inss)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comissão)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Frete)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MargemLiquida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComissGestVenda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CondicaoPgtoStd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TxJuroStd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoCobranca)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-            </td>
-        </tr>
-    }
-</table>
+<div class="height200">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dolar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropFitasFioGaxeta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropSucatas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropGrafitado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HMod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoFixoIndustrialAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoFixoComercialAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoFixoComtexAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoFixoAdminAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoFolhaModAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SemanasReposicao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ComissaoGcComacs)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Icms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ipi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Inss)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Comissão)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Frete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MargemLiquida)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ComissGestVenda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CondicaoPgtoStd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TxJuroStd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoFin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoCobranca)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in parms)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dolar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropFitasFioGaxeta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropSucatas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropGrafitado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HMod)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoFixoIndustrialAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoFixoComercialAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoFixoComtexAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoFixoAdminAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoFolhaModAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SemanasReposicao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ComissaoGcComacs)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Icms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ipi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inss)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comissão)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Frete)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MargemLiquida)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ComissGestVenda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CondicaoPgtoStd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TxJuroStd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoFin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoCobranca)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}
