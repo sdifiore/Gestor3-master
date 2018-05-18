@@ -18,7 +18,7 @@
     </p>
 }
 
-<dev class="height600">
+<div class="height600">
     <table class="table fancyTable">
         <thead>
             <tr>
@@ -129,7 +129,7 @@
             }
         </tbody>
     </table>
-</dev>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
 
