@@ -10,71 +10,93 @@
 <p>
     @Html.ActionLink("Criar nova entrada", "Create")
 </p>
-
 @*@using (Html.BeginForm("Search", "QtdEmbalagems", FormMethod.Post))
-{
-    <p>
-        Nome: @Html.TextBox("search")
-        <input class="btn btn-sm" type="submit" value="Procurar" />
-    </p>
-}*@
-
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedidaFita.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CartuchoRolCx)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CartuchoCxPlt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DisplayRolCx)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarretelRolCx)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarretelCxPlt)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in qtds)
     {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.QtdEmbalagemId })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.QtdEmbalagemId })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.QtdEmbalagemId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MedidaFitasId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CartuchoRolCx)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CartuchoCxPlt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisplayRolCx)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CarretelRolCx)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CarretelCxPlt)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.QtdEmbalagemId })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.QtdEmbalagemId })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.QtdEmbalagemId })
-            </td>
-        </tr>
-    }
-</table>
+        <p>
+            Nome: @Html.TextBox("search")
+            <input class="btn btn-sm" type="submit" value="Procurar" />
+        </p>
+    }*@
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedidaFita.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CartuchoRolCx)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CartuchoCxPlt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisplayRolCx)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarretelRolCx)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarretelCxPlt)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in qtds)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.QtdEmbalagemId })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.QtdEmbalagemId })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.QtdEmbalagemId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedidaFitasId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CartuchoRolCx)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CartuchoCxPlt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisplayRolCx)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarretelRolCx)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarretelCxPlt)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.QtdEmbalagemId })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.QtdEmbalagemId })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.QtdEmbalagemId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}
