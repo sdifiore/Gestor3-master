@@ -69,6 +69,18 @@ textarea {
     height: 500px;
 }
 
+.height150 {
+    height: 150px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.height200 {
+    height: 200px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
 .height250 {
     height: 250px;
     overflow-x: auto;
