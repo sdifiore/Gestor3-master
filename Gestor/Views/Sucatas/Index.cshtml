@@ -10,7 +10,6 @@
 <p>
     @Html.ActionLink("Criar nova sucata ou sub-produto", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "Sucatas", FormMethod.Post))
 {
     <p>
@@ -18,75 +17,98 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produto.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produto.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cartucho)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Carretel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CRefile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jumbo216)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubProduto)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Produto.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Produto.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cartucho)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Carretel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CRefile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Jumbo216)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubProduto)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in sucatas)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.SucataId })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.SucataId })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.SucataId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Apelido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cartucho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Carretel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CRefile)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Jumbo216)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubProduto)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.SucataId })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.SucataId })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.SucataId })
-            </td>
-        </tr>
-    }
-</table>
+        <tbody>
+            @foreach (var item in sucatas)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.SucataId })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.SucataId })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.SucataId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Produto.Apelido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Produto.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cartucho)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Carretel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CRefile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Jumbo216)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubProduto)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.SucataId })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.SucataId })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.SucataId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

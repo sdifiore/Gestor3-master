@@ -1,20 +1,15 @@
 ﻿@model IEnumerable<Gestor.Models.Ajuste>
-
 @using X.PagedList.Mvc;
 @using X.PagedList;
-
 @{
     ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
     IPagedList<Gestor.Models.Ajuste> ajustes = ViewBag.OnePageHistory;
 }
-
 <h2>Índice</h2>
-
 <p>
     @Html.ActionLink("Criar nova substituição", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "Ajustes", FormMethod.Post))
 {
     <p>
@@ -22,93 +17,106 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    De
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnidadeDeId)
+                </th>
+                <th>
+                    Para
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnidadeParaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoAlteracao.Descricao)
+                </th>
 
+                <th>
+                    @Html.DisplayNameFor(model => model.Fator)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Medida)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table table-hover">
-    <tr>
+        <tbody>
+            @foreach (var item in ajustes)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.AjusteId })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.AjusteId })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.AjusteId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoOriginal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescricaoOriginal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnidadeDe.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Atual.Apelido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Atual.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnidadePara.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoAlteracao.Descricao)
+                    </td>
 
-        <th></th>
-        <th>
-            De
-        </th>
-        <th>
-            Descrição
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UnidadeDeId)
-        </th>
-        <th>
-            Para
-        </th>
-
-        <th>
-            Descrição
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.UnidadeParaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoAlteracao.Descricao)
-        </th>
-
-
-        <th>
-            @Html.DisplayNameFor(model => model.Fator)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Medida)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in ajustes)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.AjusteId })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.AjusteId })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.AjusteId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodigoOriginal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescricaoOriginal)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.UnidadeDe.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Atual.Apelido)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Atual.Descricao)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.UnidadePara.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoAlteracao.Descricao)
-            </td>
-
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Fator)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Medida)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.AjusteId })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.AjusteId })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.AjusteId })
-            </td>
-        </tr>
-    }
-</table>
-
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fator)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Medida)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.AjusteId })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.AjusteId })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.AjusteId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}
