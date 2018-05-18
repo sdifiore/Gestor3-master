@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Gestor.Models.PlanejCompra>
 @using X.PagedList.Mvc;
 @using X.PagedList;
-
 @{
     ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,1015 +17,1039 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Insumo.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Insumo.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unidade.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Insumo.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FatorConsumo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LoteCompra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstoqueMinimo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrecoUnitarioBruto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoUnitario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditoUnitIcms)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditoUnitIpi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditoUnitPis)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditoUnitCofins)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PagFornecImport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IiDespImport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MesRefPag1Fornec)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MesRefPag2Fornec)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PctPag1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstoqueInicial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAnoMenos1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCMPAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QCMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalPeriodo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAnoMenos1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SFCMAno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VBCMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFNMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PFIMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIIDIMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCCMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIcmsMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VCIpiMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPisCofinsMes12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MediaMensal)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in planej)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Insumo.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Insumo.Apelido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Unidade.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Insumo.Categoria.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FatorConsumo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LoteCompra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstoqueMinimo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecoUnitarioBruto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoUnitario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditoUnitIcms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditoUnitIpi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditoUnitPis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditoUnitCofins)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PagFornecImport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IiDespImport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MesRefPag1Fornec)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MesRefPag2Fornec)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PctPag1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstoqueInicial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAnoMenos1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NCMPAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QCMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPeriodo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAnoMenos1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SFCMAno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VBCMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFNMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PFIMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PIIDIMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCCMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIcmsMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VCIpiMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CPisCofinsMes12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MediaMensal)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Insumo.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Insumo.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Unidade.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Insumo.Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FatorConsumo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoteCompra)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstoqueMinimo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecoUnitarioBruto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoUnitario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditoUnitIcms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditoUnitIpi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditoUnitPis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreditoUnitCofins)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PagFornecImport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IiDespImport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MesRefPag1Fornec)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MesRefPag2Fornec)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PctPag1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstoqueInicial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAnoMenos1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NCMPAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPeriodo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAnoMenos1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SFCMAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VBCMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFNMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PFIMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIIDIMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCCMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIcmsMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VCIpiMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CPisCofinsMes12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MediaMensal)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in planej)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Insumo.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Insumo.Apelido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Insumo.Categoria.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FatorConsumo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoteCompra)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstoqueMinimo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecoUnitarioBruto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoUnitario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreditoUnitIcms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreditoUnitIpi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreditoUnitPis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreditoUnitCofins)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PagFornecImport)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IiDespImport)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MesRefPag1Fornec)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MesRefPag2Fornec)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PctPag1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstoqueInicial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAnoMenos1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NCMPAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPeriodo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAnoMenos1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SFCMAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VBCMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFNMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PFIMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIIDIMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCCMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIcmsMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VCIpiMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPisCofinsMes12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MediaMensal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

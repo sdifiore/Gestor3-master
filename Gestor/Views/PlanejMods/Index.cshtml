@@ -11,212 +11,236 @@
     @Html.ActionLink("Criar novo planejamento MOD", "Create")
 </p>
 @using (Html.BeginForm("Search", "PlanejMods", FormMethod.Post))
+
 {
     <p>
         Código: @Html.TextBox("search")
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Operacao.CodigoOperacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Operacao.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Setor.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Setor.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unidade.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDe12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos11)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos10)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos9)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos8)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos6)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos5)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoMenos1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ano)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MediaMensal)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in planej)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Operacao.CodigoOperacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Operacao.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Setor.Codigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Setor.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Unidade.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDe12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos11)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos10)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos9)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos8)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos6)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos5)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoMenos1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ano)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MediaMensal)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Operacao.CodigoOperacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Operacao.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Setor.Codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Setor.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Unidade.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDe12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos9)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos8)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos6)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnoMenos1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ano)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MediaMensal)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in planej)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Operacao.CodigoOperacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Operacao.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Setor.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Setor.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Unidade.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDe12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnoMenos1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ano)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MediaMensal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

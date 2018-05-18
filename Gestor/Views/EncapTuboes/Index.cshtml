@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<Gestor.Models.EncapTubo>
-
 @using X.PagedList.Mvc;
 @using X.PagedList;
-
 @{
     ViewBag.Title = "Índice";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,7 +10,6 @@
 <p>
     @Html.ActionLink("Criar novo encapamento de tubos", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "EncapTuboes", FormMethod.Post))
 {
     <p>
@@ -20,99 +17,121 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height800">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produto.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Unidade.Apelido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DextRevest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DintRevest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResinaBase)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aditivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DenRev)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PesoRevest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VelRevest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PctCarga)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Resina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Master)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Produto.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unidade.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DextRevest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DintRevest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ResinaBase)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Aditivo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DenRev)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PesoRevest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VelRevest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PctCarga)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Resina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Master)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in encaps)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Apelido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Unidade.Apelido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DextRevest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DintRevest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResinaBase)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aditivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DenRev)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PesoRevest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VelRevest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PctCarga)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Master)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
-
+            @foreach (var item in encaps)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Produto.Apelido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Unidade.Apelido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DextRevest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DintRevest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResinaBase)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aditivo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DenRev)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PesoRevest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VelRevest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PctCarga)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Resina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Master)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })<br />
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })<br />
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

@@ -32,22 +32,6 @@ textarea {
     font-style: italic;
 }
 
-.spleft {
-    display: table-cell;
-    float: left;
-    width: 30%;
-    vertical-align: bottom;
-    text-align: right;
-    vertical-align: middle;
-}
-
-.spright {
-    display: table-cell;
-    float: right;
-    width: 70%;
-    vertical-align: middle;
-}
-
 .valign {
     display: table-cell;
     vertical-align: middle;
@@ -99,6 +83,12 @@ textarea {
 
 .height700 {
     height: 700px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.height800 {
+    height: 800px;
     overflow-x: auto;
     overflow-y: auto;
 }
