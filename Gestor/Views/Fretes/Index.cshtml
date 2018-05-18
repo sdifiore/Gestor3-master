@@ -10,62 +10,86 @@
 <p>
     @Html.ActionLink("Criar nova entrada de frete", "Create")
 </p>
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.CifGrandeSp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CifForaGrandeSp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegioesIcms18)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegioesIcms12)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegioesIcms7)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in fretes)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.FreteId })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.FreteId })
-                @*@Html.ActionLink("Eliminar", "Delete", new { id = item.FreteId })*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CifGrandeSp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CifForaGrandeSp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegioesIcms18)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegioesIcms12)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegioesIcms7)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.FreteId })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.FreteId })
-                @*@Html.ActionLink("Eliminar", "Delete", new { id = item.FreteId })*@
-            </td>
-        </tr>
-    }
-</table>
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CifGrandeSp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CifForaGrandeSp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegioesIcms18)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegioesIcms12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegioesIcms7)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in fretes)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.FreteId })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.FreteId })
+                        @*@Html.ActionLink("Eliminar", "Delete", new { id = item.FreteId })*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CifGrandeSp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CifForaGrandeSp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegioesIcms18)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegioesIcms12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegioesIcms7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.FreteId })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.FreteId })
+                        @*@Html.ActionLink("Eliminar", "Delete", new { id = item.FreteId })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}
