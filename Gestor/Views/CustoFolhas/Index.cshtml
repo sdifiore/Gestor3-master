@@ -10,7 +10,6 @@
 <p>
     @Html.ActionLink("Criar nova relação de custo", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "CustoFolhas", FormMethod.Post))
 {
     <p>
@@ -18,99 +17,122 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ferias)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DecimoTerceiro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Plr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fgts)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Inss)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DespAgencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ConvMedico)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VAlimentacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VTransporte)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Area.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Salario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ferias)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DecimoTerceiro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Plr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fgts)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Inss)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DespAgencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConvMedico)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VAlimentacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VTransporte)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in custos)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.CustoFolhaId })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.CustoFolhaId })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.CustoFolhaId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Area.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ferias)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DecimoTerceiro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Plr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fgts)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Inss)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DespAgencia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConvMedico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VAlimentacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VTransporte)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.CustoFolhaId })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.CustoFolhaId })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.CustoFolhaId })
-            </td>
-        </tr>
-    }
-</table>
+        <tbody>
+            @foreach (var item in custos)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.CustoFolhaId })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.CustoFolhaId })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.CustoFolhaId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ferias)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DecimoTerceiro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Plr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fgts)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inss)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DespAgencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConvMedico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VAlimentacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VTransporte)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.CustoFolhaId })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.CustoFolhaId })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.CustoFolhaId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}

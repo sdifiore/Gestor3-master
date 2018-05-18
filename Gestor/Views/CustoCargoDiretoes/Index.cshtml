@@ -10,7 +10,6 @@
 <p>
     @Html.ActionLink("Criar novo custo", "Create")
 </p>
-
 @using (Html.BeginForm("Search", "CustoCargos", FormMethod.Post))
 {
     <p>
@@ -18,123 +17,146 @@
         <input class="btn btn-sm" type="submit" value="Procurar" />
     </p>
 }
+<div class="height600">
+    <table class="table fancyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    Setor de Produção
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Setor.Codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Operadores)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoDireta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodigoLiderApoio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoDiretaLiderApoio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HorasModOperadores)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HorasModTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustoUnitario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateioSetor20)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateioSetor40)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateioSetor50)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateioSetor60)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaIndiretos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SomaDiretoIndireto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateioCustoUnitario)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table table-hover">
-    <tr>
-        <th></th>
-        <th>
-            Setor de Produção
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Setor.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Operadores)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoDireta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoLiderApoio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoDiretaLiderApoio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasModOperadores)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasModTotal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustoUnitario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RateioSetor20)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RateioSetor40)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RateioSetor50)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RateioSetor60)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaIndiretos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SomaDiretoIndireto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RateioCustoUnitario)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in custos)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Setor.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Setor.Codigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Operadores)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MoDireta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodigoLiderApoio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MoDiretaLiderApoio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasModOperadores)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorasModTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustoUnitario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RateioSetor20)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RateioSetor40)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RateioSetor50)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RateioSetor60)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaIndiretos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SomaDiretoIndireto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RateioCustoUnitario)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
+        <tbody>
+            @foreach (var item in custos)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Setor.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Setor.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Operadores)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoDireta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoLiderApoio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoDiretaLiderApoio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HorasModOperadores)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HorasModTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustoUnitario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateioSetor20)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateioSetor40)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateioSetor50)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateioSetor60)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaIndiretos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SomaDiretoIndireto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateioCustoUnitario)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @Html.PagedListPager((IPagedList)ViewBag.OnePageHistory, page => Url.Action("Index", new { page }))
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.fixedheadertable.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('.table').fixedHeaderTable({
+            footer: true,
+            cloneHeadToFoot: false,
+            altClass: 'odd',
+            autoShow: true
+        });
+
+    </script>
+
+}
