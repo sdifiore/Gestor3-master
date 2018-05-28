@@ -1802,7 +1802,7 @@ namespace Gestor
             }
         }
 
-        private static void CalcAll()
+        public static void CalcAll()
         {
             for (int i = 0; i < 5; i++)
             {

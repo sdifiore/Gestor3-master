@@ -161,30 +161,7 @@ namespace Gestor.Controllers
 
         public ActionResult Tudo()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Populate.DfxProdRev();
-                Populate.Quadro();
-                Populate.QuadroPercentual();
-                Populate.GrupoRateio();
-                Populate.FormacaoPrecoVenda();
-                Populate.Lucratividade();
-                Populate.PrecoNacional();
-                Populate.Insumo();
-                Populate.Estrutura();
-                Populate.Produto();
-                Populate.PrecoExportacao();
-                Populate.EncapTubos();
-                Populate.Graxas();
-                Populate.PreForma();
-                Populate.ResinaPtfe();
-                Populate.ProcTubos();
-                Populate.PlanejVendas();
-                Populate.PlanejMod();
-                Populate.PlanejCompra();
-                Populate.PlanejNecessidades();
-                Populate.PlanejProducao(); 
-            }
+            Populate.CalcAll();
 
             return Redirect("/");
         }
