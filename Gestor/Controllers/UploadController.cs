@@ -124,7 +124,46 @@ namespace Gestor.Controllers
                 ViewBag.Message = "Ocorreu um erro. Tente novamente ou consulte a log do sistema.";
                 ViewBag.retorno = "FatHist";
                 return View("UploadFile");
-    }
-}
+            }
+        }
+
+        [HttpGet]
+        public ViewResult Custos()
+        {
+            ViewBag.UltimaAtualizacao = db.Memorias.First().AlualizacaoCustos;
+            ViewBag.retorno = "Custos";
+            return View("UploadFile");
+        }
+
+        [HttpPost]
+        public ActionResult Custos(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string path = Path.Combine(Server.MapPath("~/UploadedFiles"), file.FileName);
+                    file.SaveAs(path);
+                    Populate.Custos(path);
+                    System.IO.File.Delete(path);
+                    var memoria = db.Memorias.First();
+                    memoria.AlualizacaoCustos = DateTime.Now;
+                    db.SaveChanges();
+                }
+
+                ViewBag.UltimaAtualizacao = db.Memorias.First().AlualizacaoCustos;
+                ViewBag.Message = Global.AtualizacaoOk;
+                ViewBag.retorno = "Custos";
+                return View("UploadFile");
+            }
+            catch (Exception ex)
+            {
+                DbLogger.Log(Reason.Error, $"Upload.Custos: {ex.Message}");
+                ViewBag.UltimaAtualizacao = db.Memorias.First().AlualizacaoCustos;
+                ViewBag.Message = "Ocorreu um erro. Tente novamente ou consulte a log do sistema.";
+                ViewBag.retorno = "Custos";
+                return View("UploadFile");
+            }
+        }
     }
 }

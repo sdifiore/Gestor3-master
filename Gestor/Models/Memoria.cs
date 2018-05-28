@@ -22,5 +22,7 @@ namespace Gestor.Models
         public DateTime AtualizacaoDespFixas { get; set; }
 
         public DateTime AtualizacaoFatHistorico { get; set; }
+
+        public DateTime AlualizacaoCustos { get; set; }
     }
 }

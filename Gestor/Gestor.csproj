@@ -1211,6 +1211,14 @@
     <Compile Include="Migrations\201805121233218_AddFlagsTablePlanejVendasFilter.Designer.cs">
       <DependentUpon>201805121233218_AddFlagsTablePlanejVendasFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805281145083_AddAtualizacaoCustosToMemoria.cs" />
+    <Compile Include="Migrations\201805281145083_AddAtualizacaoCustosToMemoria.Designer.cs">
+      <DependentUpon>201805281145083_AddAtualizacaoCustosToMemoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281146528_AtualizacaoCustoInLatin.cs" />
+    <Compile Include="Migrations\201805281146528_AtualizacaoCustoInLatin.Designer.cs">
+      <DependentUpon>201805281146528_AtualizacaoCustoInLatin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aditivo.cs" />
     <Compile Include="Models\Aumdim.cs" />
     <Compile Include="Models\AutomapperProfile.cs" />
@@ -2089,6 +2097,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="icon.ico" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -3825,6 +3834,12 @@
     <EmbeddedResource Include="Migrations\201805121233218_AddFlagsTablePlanejVendasFilter.resx">
       <DependentUpon>201805121233218_AddFlagsTablePlanejVendasFilter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281145083_AddAtualizacaoCustosToMemoria.resx">
+      <DependentUpon>201805281145083_AddAtualizacaoCustosToMemoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281146528_AtualizacaoCustoInLatin.resx">
+      <DependentUpon>201805281146528_AtualizacaoCustoInLatin.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -3910,6 +3925,9 @@
     <TypeScriptSourceMap>True</TypeScriptSourceMap>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

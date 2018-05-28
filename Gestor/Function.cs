@@ -71,6 +71,13 @@ namespace Gestor
             return result;
         }
 
+        public static float NumberPct(string value)
+        {
+            float result = Number(value) / 100;
+
+            return result;
+        }
+
         public static float Round(float value, int pos)
         {
             float result = (float)(Math.Round(value * Math.Pow(10, pos)) / Math.Pow(10, pos));

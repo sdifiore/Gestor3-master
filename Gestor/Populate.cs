@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.UI.WebControls;
+using Gestor.Controllers;
 using Gestor.Models;
 
 
@@ -52,7 +53,7 @@ namespace Gestor
                     register.HrsModPrec2 = FxEstrutura.HrsModPrec2(register);   // Y
                     register.IdCmpnt = FxEstrutura.IdCmpnt(register);   // AA
                     register.PdrHoraria = FxEstrutura.PdrHoraria(register);     // AB
-                 // register.ProdComp = FxEstrutura.ProdComp(register);     // AC
+                                                                                // register.ProdComp = FxEstrutura.ProdComp(register);     // AC
                     register.CstIndividual = FxEstrutura.CstIndividual(register);   // AD
                     register.CstMtrlDrt = FxEstrutura.CstMtrlDrt(register);     // AE
                     register.CstMtrlPrcd1 = FxEstrutura.CstMtrlPrcd1(register);     // AF
@@ -61,7 +62,7 @@ namespace Gestor
 
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -97,7 +98,7 @@ namespace Gestor
                     register.UsoStru = estrutura.Count(e => e.Item == register.Apelido);
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -153,7 +154,7 @@ namespace Gestor
 
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -165,13 +166,13 @@ namespace Gestor
 
                 foreach (var register in model)
                 {
-                    register.PesoRevest = (register.DextRevest * register.DextRevest - register.DintRevest * 
+                    register.PesoRevest = (register.DextRevest * register.DextRevest - register.DintRevest *
                         register.DintRevest) * (float)Math.PI / 4 * register.DenRev / 1000;
                     register.Resina = register.PesoRevest * (1 - register.PctCarga);
                     register.Master = register.PesoRevest - register.Resina;
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -212,7 +213,7 @@ namespace Gestor
                     graxa.RotularH = graxa.Rotulagem * graxa.LoteMinino / 60;
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -237,7 +238,7 @@ namespace Gestor
                         * register.Comprimento / 1000 * db.PadroesFixos.Single(p => p.Descricao == comp2).Valor / 1000;
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -255,7 +256,7 @@ namespace Gestor
                         : insumo.CustoUndCnsm;
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -312,7 +313,7 @@ namespace Gestor
                     register.PvCalculadoRsM = FxTubo.PvCalculadoRsM(register);      // BH
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -335,7 +336,7 @@ namespace Gestor
                     register.I7Nivel3 = FxPrecoNacional.I7Nivel3(register);       // O
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -363,7 +364,7 @@ namespace Gestor
                     }
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -387,7 +388,7 @@ namespace Gestor
                     register.ProporcaoEmCxs = FxDfxProdRev.ProporcaoEmCxs(register, model.Sum(m => m.QtdCompra));      // Q
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -413,7 +414,7 @@ namespace Gestor
                     register.Ano = FxPlanejMod.Ano(register);     // AB
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -576,7 +577,7 @@ namespace Gestor
                     register.MediaMensal = FxPlanejCompra.MediaMensal(register);        // FJ
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -603,7 +604,7 @@ namespace Gestor
                     stru.NecCompListaP4 = FxPlanejNecessidade.NecCompListaP4(stru);       // AF
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -830,9 +831,9 @@ namespace Gestor
                     item.RlRecLiqVendaTotal = FxPlanejVenda.RlRecLiqVendaTotal(item);     // IR
                     item.McCustoDirMatModTotal = FxPlanejVenda.McCustoDirMatModTotal(item);     // IS
                     item.McCustoFixoFabricaTotal = FxPlanejVenda.McCustoFixoFabricaTotal(item);     // IX
-                    
-                    
-                                                                                // IX a JA executados ao final desta rotina
+
+
+                    // IX a JA executados ao final desta rotina
                     item.CdTotAnoMenos12 = FxPlanejVenda.CdTotAnoMenos12(item);     // JB
                     item.CdTotAnoMenos11 = FxPlanejVenda.CdTotAnoMenos11(item);     // JC
                     item.CdTotAnoMenos10 = FxPlanejVenda.CdTotAnoMenos10(item);     // JD
@@ -972,7 +973,7 @@ namespace Gestor
                     item.RoResultadoOperacionalTotalPct = FxPlanejVenda.RoResultadoOperacionalTotalPct(item);     // JA
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -1026,7 +1027,7 @@ namespace Gestor
                     item.SfmAnoMenos00 = FxPlanejProducao.SfmAnoMenos00(item);        // AT
                 }
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -1136,7 +1137,7 @@ namespace Gestor
                 quadro.QipGloballGraxa = quadro.QipPropriaGraxa + quadro.QipTerceirosGraxa;
                 quadro.QipGloballRevenda = quadro.QipPropriaRevenda + quadro.QipTerceirosRevenda;
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
 
@@ -1284,7 +1285,7 @@ namespace Gestor
         // Custo_2.Orçamento / Rateio
         public static void GrupoRateio()
         {
-            using(var db = new ApplicationDbContext())
+            using (var db = new ApplicationDbContext())
             {
                 GrupoRateio[] gr = new GrupoRateio[16];
 
@@ -1447,7 +1448,7 @@ namespace Gestor
 
         public static void CustosCargos(string path)
         {
-            using(var db = new ApplicationDbContext())
+            using (var db = new ApplicationDbContext())
             {
                 int count = 0;
                 string[] lines = File.ReadAllLines(path, Encoding.Default);
@@ -1479,7 +1480,7 @@ namespace Gestor
                         cc.RateioSetor60 = Function.Number(reg[12]);
                         cc.SomaIndiretos = Function.Number(reg[13]);
                         cc.SomaDiretoIndireto = Function.Number(reg[14]);
-                        cc.RateioCustoUnitario = Function.Number(reg[15]); 
+                        cc.RateioCustoUnitario = Function.Number(reg[15]);
                     }
                 }
 
@@ -1706,7 +1707,7 @@ namespace Gestor
                         var dev = db.CubosTrabalhados.FirstOrDefault(c => c.NotaFiscal == comp);
                         if (dev != null) continue;
                     }
-                        
+
                     var cubo = new CuboTrabalhado();
                     cubo.Pedido = reg[0];
                     cubo.DataPedido = Function.ParseDate(reg[3]);
@@ -1766,6 +1767,66 @@ namespace Gestor
 
                 DbLogger.Log(Reason.Info, $"Tempo para atualizar FatHistorico: {DateTime.Now - inicio}, em {count} iterações. {registrados} registrados");
 
+            }
+        }
+
+        public static void Custos(string path)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                int count = 0;
+                string[] lines = File.ReadAllLines(path, Encoding.Default);
+
+                foreach (var line in lines)
+                {
+                    if (count++ < 2) continue;
+
+                    var reg = line.Split(';');
+                    string apelido = reg[0];
+                    var insumo = db.Insumos.Single(i => i.Apelido == apelido);
+
+                    insumo.Cotacao = reg[2];
+                    if (reg[3] != "") insumo.PrecoUsd = Function.Number(reg[3]);
+                    if (reg[4] != "") insumo.Custo = Function.Number(reg[4]);
+                    if (reg[5] != "") insumo.Icms = Function.NumberPct(reg[5]);
+                    if (reg[6] != "") insumo.Ipi = Function.NumberPct(reg[6]);
+                    if (reg[7] != "") insumo.Pis = Function.NumberPct(reg[7]);
+                    if (reg[8] != "") insumo.Cofins = Function.NumberPct(reg[8]);
+                    if (reg[9] != "") insumo.DespExtra = Function.NumberPct(reg[9]);
+                    if (reg[10] != "") insumo.DespImport = Function.NumberPct(reg[10]);
+                }
+
+                db.SaveChanges();
+
+                CalcAll();
+            }
+        }
+
+        private static void CalcAll()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                DfxProdRev();
+                Quadro();
+                QuadroPercentual();
+                GrupoRateio();
+                FormacaoPrecoVenda();
+                Lucratividade();
+                PrecoNacional();
+                Insumo();
+                Estrutura();
+                Produto();
+                PrecoExportacao();
+                EncapTubos();
+                Graxas();
+                PreForma();
+                ResinaPtfe();
+                ProcTubos();
+                PlanejVendas();
+                PlanejMod();
+                PlanejCompra();
+                PlanejNecessidades();
+                PlanejProducao();
             }
         }
     }
